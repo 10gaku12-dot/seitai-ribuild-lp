@@ -21,9 +21,9 @@
       --color-primary-dark: #1f6358;
       --color-accent:       #E8A23C;
       --color-accent-dark:  #c9882a;
-      --color-line:         #06C755;
+      --color-line:         #06C755;   /* LINEグリーン */
       --color-line-dark:    #05a848;
-      --color-risk:         #FFF3E0;
+      --color-risk:         #FFF3E0;   /* 放置リスク背景 */
       --color-risk-border:  #FFCC80;
       --color-risk-text:    #E65100;
       --color-bg:           #FAFAF8;
@@ -39,6 +39,9 @@
       --max-width:          720px;
     }
 
+    /* ============================================================
+       リセット & ベース
+       ============================================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -51,6 +54,9 @@
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
 
+    /* ============================================================
+       共通レイアウト
+       ============================================================ */
     .container {
       max-width: var(--max-width);
       margin: 0 auto;
@@ -81,6 +87,9 @@
       margin-bottom: 40px;
     }
 
+    /* ============================================================
+       ボタン共通
+       ============================================================ */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -96,6 +105,7 @@
     }
     .btn:active { transform: scale(0.97); }
 
+    /* ゴールド：メインCTA（予約ボタン）*/
     .btn--primary {
       background: var(--color-accent);
       color: var(--color-white);
@@ -109,6 +119,7 @@
       transform: translateY(-2px);
     }
 
+    /* グリーン：フォームの「次へ」などに使用 */
     .btn--green {
       background: var(--color-primary);
       color: var(--color-white);
@@ -122,6 +133,7 @@
       transform: translateY(-2px);
     }
 
+    /* LINEグリーン：LINE相談ボタン */
     .btn--line {
       background: var(--color-line);
       color: var(--color-white);
@@ -135,6 +147,7 @@
       transform: translateY(-2px);
     }
 
+    /* アウトライン */
     .btn--outline {
       background: transparent;
       color: var(--color-primary);
@@ -147,6 +160,9 @@
       color: var(--color-white);
     }
 
+    /* ============================================================
+       ヘッダー
+       ============================================================ */
     .header {
       position: sticky;
       top: 0;
@@ -183,17 +199,22 @@
       align-items: center;
       gap: 8px;
     }
+    /* ヘッダーのボタンサイズ調整 */
     .header__cta {
       font-size: 12px !important;
       padding: 9px 16px !important;
       white-space: nowrap;
     }
+    /* スマホでLINEボタンのテキストを短縮 */
     .header__line-text-short { display: none; }
     @media (max-width: 420px) {
       .header__line-text-full { display: none; }
       .header__line-text-short { display: inline; }
     }
 
+    /* ============================================================
+       ① ヒーロー（ファーストビュー）
+       ============================================================ */
     .hero {
       background: linear-gradient(160deg, #1a6657 0%, #2A7F6F 55%, #3a9d89 100%);
       color: var(--color-white);
@@ -262,8 +283,12 @@
       opacity: 0.85;
     }
 
+    /* ============================================================
+       ② 診断フォーム
+       ============================================================ */
     .form-section { background: var(--color-white); }
 
+    /* ステップインジケーター */
     .steps {
       display: flex;
       align-items: center;
@@ -287,6 +312,7 @@
     .step-line { width: 48px; height: 2px; background: var(--color-border); margin-bottom: 20px; transition: background 0.3s; }
     .step-line.done { background: var(--color-primary); }
 
+    /* フォームカード */
     .form-card {
       background: var(--color-white);
       border: 1px solid var(--color-border);
@@ -297,6 +323,7 @@
     .form-card__title { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
     .form-card__desc { font-size: 13px; color: var(--color-text-light); margin-bottom: 24px; }
 
+    /* 選択肢 */
     .options {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
@@ -342,6 +369,9 @@
     .form-next { width: 100%; margin-top: 8px; }
     .form-error { color: #e53935; font-size: 13px; margin-top: 8px; display: none; }
 
+    /* ============================================================
+       ローディング
+       ============================================================ */
     .loading-section { display: none; text-align: center; padding: 64px 20px; }
     .loading-section.active { display: block; }
     .loading-wrap { position: relative; width: 80px; height: 80px; margin: 0 auto 28px; }
@@ -369,9 +399,13 @@
     .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
     @keyframes blink { 0%,80%,100%{opacity:0} 40%{opacity:1} }
 
+    /* ============================================================
+       診断結果
+       ============================================================ */
     .result-section { display: none; }
     .result-section.active { display: block; }
 
+    /* 結果カード全体 */
     .result-card {
       background: var(--color-white);
       border-radius: var(--radius);
@@ -380,6 +414,7 @@
       margin-bottom: 20px;
     }
 
+    /* 結果ヘッダー */
     .result-header {
       background: linear-gradient(135deg, #1a6657 0%, #2A7F6F 60%, #3a9d89 100%);
       color: var(--color-white);
@@ -435,6 +470,7 @@
       padding: 4px 14px;
     }
 
+    /* 結果ボディ */
     .result-body { padding: 28px; }
     .result-block { margin-bottom: 24px; }
     .result-block:last-child { margin-bottom: 0; }
@@ -449,6 +485,7 @@
     }
     .result-block__title .icon { font-size: 18px; }
     .result-block p { font-size: 14px; line-height: 1.8; }
+    /* 自分ごと化フック */
     .result-hook {
       background: linear-gradient(135deg, #FFF8EC, #FFF3DC);
       border-left: 4px solid var(--color-accent);
@@ -465,16 +502,20 @@
       content: '⚡ ';
       font-size: 1em;
     }
+    /* 4ブロック段落テキスト — スマホ最適化 */
     .result-para { font-size: 15px; line-height: 1.85; color: var(--color-text); }
 
+    /* 通常行 */
     .para-line {
       display: block;
       margin-bottom: 4px;
     }
+    /* 空行スペーサー */
     .para-space {
       display: block;
       height: 14px;
     }
+    /* 【ヘッダー】行 */
     .para-header {
       display: block;
       font-size: 12px;
@@ -486,6 +527,7 @@
       padding: 4px 10px;
       margin-bottom: 10px;
     }
+    /* **太字強調** */
     .para-strong {
       display: inline;
       font-weight: 800;
@@ -494,6 +536,7 @@
       border-radius: 4px;
       padding: 1px 4px;
     }
+    /* 箇条書き行 */
     .para-bullet {
       display: block;
       padding-left: 4px;
@@ -501,6 +544,7 @@
       color: var(--color-text);
       font-size: 14px;
     }
+    /* ご提案ブロックは強調 */
     .result-block--proposal {
       background: linear-gradient(135deg, rgba(42,127,111,0.08), rgba(42,127,111,0.04));
       border: 1.5px solid rgba(42,127,111,0.25);
@@ -510,6 +554,7 @@
     .result-block--proposal .result-block__title {
       font-size: 15px;
     }
+    /* 各ブロックの余白を広げる */
     .result-block { margin-bottom: 8px; }
     .result-body { padding: 24px 22px 28px; }
     .result-divider { margin: 20px 0; }
@@ -517,6 +562,7 @@
       .result-body { padding: 18px 16px 24px; }
       .result-para { font-size: 14px; }
     }
+    /* 放置リスクリスト */
     .result-risk-list {
       list-style: none;
       display: flex;
@@ -537,6 +583,7 @@
       font-weight: 500;
     }
     .result-risk-list .risk-icon { flex-shrink: 0; font-size: 13px; margin-top: 2px; }
+    /* CTA直前の訴求一文 */
     .result-urgency {
       text-align: center;
       line-height: 1.85;
@@ -551,7 +598,7 @@
       font-style: normal;
       color: var(--color-primary);
     }
-    .result-urgency__main {
+        .result-urgency__main {
       font-size: clamp(16px, 4.2vw, 18px);
       font-weight: 900;
       margin-bottom: 10px;
@@ -578,6 +625,7 @@
     }
     .result-divider { border: none; border-top: 1px solid var(--color-border); margin: 22px 0; }
 
+    /* 放置リスクボックス */
     .risk-box {
       background: var(--color-risk);
       border: 1.5px solid var(--color-risk-border);
@@ -619,6 +667,7 @@
       font-style: italic;
     }
 
+    /* 施術プランカード */
     .plan-card {
       background: linear-gradient(135deg, rgba(42,127,111,0.08), rgba(42,127,111,0.03));
       border: 1.5px solid rgba(42,127,111,0.30);
@@ -650,6 +699,7 @@
     }
     .plan-card__desc { font-size: 13px; line-height: 1.75; }
 
+    /* セルフケアリスト */
     .stretch-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
     .stretch-list li {
       display: flex;
@@ -671,6 +721,9 @@
       margin-top: 1px;
     }
 
+    /* ============================================================
+       改善事例カード
+       ============================================================ */
     .voice-cards {
       display: flex;
       flex-direction: column;
@@ -709,6 +762,9 @@
       font-weight: 700;
     }
 
+    /* ============================================================
+       結果内CTA（2段ボタン）
+       ============================================================ */
     .result-cta-box {
       background: linear-gradient(135deg, #f0fdf9, #e8f7f2);
       border: 2px solid rgba(42,127,111,0.35);
@@ -775,6 +831,9 @@
       margin-top: 16px;
     }
 
+    /* ============================================================
+       信頼要素（特徴）
+       ============================================================ */
     .trust-section { background: var(--color-white); }
     .trust-cards {
       display: grid;
@@ -794,6 +853,9 @@
     .trust-card__title { font-size: 16px; font-weight: 700; color: var(--color-primary); margin-bottom: 8px; }
     .trust-card__desc { font-size: 13px; color: var(--color-text-light); line-height: 1.7; }
 
+    /* ============================================================
+       CTAセクション（全面改善）
+       ============================================================ */
     .cta-section {
       background: linear-gradient(160deg, #1a6657 0%, #2A7F6F 55%, #3a9d89 100%);
       color: var(--color-white);
@@ -804,6 +866,7 @@
     .cta-section .section-title { color: var(--color-white); }
     .cta-section .section-sub { color: rgba(255,255,255,0.78); }
 
+    /* 初回価格カード */
     .cta-price-card {
       background: rgba(255,255,255,0.12);
       border: 1px solid rgba(255,255,255,0.28);
@@ -818,6 +881,7 @@
     .cta-price-card__amount small { font-size: 14px; font-weight: 500; opacity: 0.80; }
     .cta-price-card__note { font-size: 12px; opacity: 0.68; margin-top: 4px; }
 
+    /* 2段ボタンブロック */
     .cta-btn-block {
       display: flex;
       flex-direction: column;
@@ -827,6 +891,7 @@
     }
     .cta-btn-block .btn { width: 100%; max-width: 340px; }
 
+    /* セパレーター */
     .cta-or {
       font-size: 12px;
       opacity: 0.60;
@@ -843,6 +908,7 @@
       background: rgba(255,255,255,0.30);
     }
 
+    /* LINE説明文 */
     .cta-line-notes {
       display: flex;
       flex-direction: column;
@@ -853,6 +919,7 @@
       margin-bottom: 4px;
     }
 
+    /* 安心材料 */
     .cta-trust {
       display: flex;
       flex-direction: column;
@@ -866,6 +933,9 @@
     .cta-tel { margin-top: 24px; font-size: 14px; opacity: 0.75; }
     .cta-tel a { color: #FFD98A; font-weight: 700; font-size: 20px; }
 
+    /* ============================================================
+       フッター
+       ============================================================ */
     .footer {
       background: #1a2421;
       color: rgba(255,255,255,0.75);
@@ -885,13 +955,32 @@
       font-size: 12px; color: rgba(255,255,255,0.40);
     }
 
+    /* ============================================================
+       スクロールフェードイン
+       ============================================================ */
+    /* フォールバック用keyframes: JSが動かなくても必ず表示される */
+    @keyframes fadeFallback {
+      to { opacity: 1; transform: none; }
+    }
     .fade-in {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      /* CSSアニメーション保険: 0.8秒後に強制表示（iOS Safari対応）*/
+      animation: fadeFallback 0.5s 0.8s ease forwards;
     }
-    .fade-in.visible { opacity: 1; transform: none; }
+    /* JSが.visibleを付けた場合はCSSアニメーションをキャンセルして
+       transitionで滑らかに表示 */
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
 
+    /* ============================================================
+       固定CTAバー（診断完了後に画面下部へ浮上）
+       左：LINE相談 ／ 右：予約 の2分割
+       ============================================================ */
     .sticky-bar {
       position: fixed;
       bottom: 0; left: 0; right: 0;
@@ -942,6 +1031,9 @@
     .sticky-bar__reserve .label { font-size: 13px; }
     .sticky-bar__reserve .sub   { font-size: 10px; opacity: 0.85; font-weight: 500; }
 
+    /* ============================================================
+       デモ告知バー（最上部）
+       ============================================================ */
     .demo-bar {
       background: linear-gradient(90deg, #1a2421 0%, #2A7F6F 100%);
       color: rgba(255,255,255,0.92);
@@ -958,6 +1050,9 @@
       text-underline-offset: 2px;
     }
 
+    /* ============================================================
+       売上試算セクション（ROI）
+       ============================================================ */
     .roi-section {
       background: #1a2421;
       color: var(--color-white);
@@ -967,6 +1062,7 @@
     .roi-section .section-title { color: var(--color-white); }
     .roi-section .section-sub   { color: rgba(255,255,255,0.70); }
 
+    /* 試算カード3枚 */
     .roi-metrics {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -994,6 +1090,7 @@
       line-height: 1.5;
     }
 
+    /* 試算シミュレーション枠 */
     .roi-calc {
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.18);
@@ -1040,6 +1137,9 @@
       .roi-metrics .roi-metric:last-child { grid-column: 1 / -1; }
     }
 
+    /* ============================================================
+       差別化セクション
+       ============================================================ */
     .diff-section { background: var(--color-white); }
     .diff-table {
       width: 100%;
@@ -1080,8 +1180,12 @@
       vertical-align: middle;
     }
 
+    /* ============================================================
+       ABOUT セクション
+       ============================================================ */
     .about-section { background: var(--color-bg-section); }
 
+    /* 3ステップのフロー図 */
     .about-flow {
       display: flex;
       align-items: center;
@@ -1094,7 +1198,7 @@
       background: var(--color-white);
       border: 1px solid var(--color-border);
       border-radius: var(--radius);
-      padding: 20px 18px;
+            padding: 20px 18px;
       text-align: center;
       min-width: 130px;
       flex: 1;
@@ -1119,6 +1223,7 @@
       font-weight: 700;
       flex-shrink: 0;
     }
+    /* デモ注記 */
     .about-note {
       text-align: center;
       font-size: 12px;
@@ -1130,12 +1235,16 @@
       line-height: 1.7;
     }
 
+    /* スマホでフロー図を縦並びに */
     @media (max-width: 480px) {
       .about-flow { flex-direction: column; gap: 4px; }
       .about-flow__arrow { transform: rotate(90deg); }
       .about-flow__item { max-width: 100%; width: 100%; }
     }
 
+    /* ============================================================
+       期待できる変化セクション
+       ============================================================ */
     .change-section { background: var(--color-bg-section); }
     .change-cards {
       display: flex;
@@ -1176,6 +1285,7 @@
       color: var(--color-primary);
       line-height: 1.6;
     }
+    /* 矢印の装飾 */
     .change-card__arrow {
       display: inline-block;
       background: rgba(42,127,111,0.12);
@@ -1187,6 +1297,9 @@
       margin-right: 4px;
     }
 
+    /* ============================================================
+       FAQ セクション
+       ============================================================ */
     .faq-section { background: var(--color-white); }
     .faq-list {
       border: 1px solid var(--color-border);
@@ -1197,6 +1310,7 @@
       border-bottom: 1px solid var(--color-border);
     }
     .faq-item:last-child { border-bottom: none; }
+    /* アコーディオンのQ行 */
     .faq-question {
       display: flex;
       align-items: center;
@@ -1228,6 +1342,7 @@
       flex-shrink: 0;
     }
     .faq-item.open .faq-toggle { transform: rotate(180deg); }
+    /* A行（非表示 → open クラスで表示） */
     .faq-answer {
       display: none;
       padding: 2px 20px 18px 58px;
@@ -1238,6 +1353,9 @@
     }
     .faq-item.open .faq-answer { display: block; }
 
+    /* ============================================================
+       レスポンシブ
+       ============================================================ */
     @media (max-width: 480px) {
       .section { padding: 56px 0; }
       .form-card { padding: 24px 18px; }
@@ -1261,13 +1379,16 @@
         <span>SEITAI REBUILD</span>
       </div>
       <div class="header__nav">
+        <!-- 診断ボタン -->
         <a href="#form-section" class="btn btn--primary header__cta">🔍 無料診断</a>
+        <!-- WEB予約ボタン -->
         <a href="https://ribuild.jp/contact/" class="btn btn--green header__cta" target="_blank" rel="noopener">
           <span class="header__line-text-full">📅 WEB予約</span>
           <span class="header__line-text-short">📅 予約</span>
         </a>
+        <!-- LINE相談ボタン（迷っている人向け）-->
         <!-- ▼ LINEのURLをここに設定してください ▼ -->
-        <a href="https://line.me/R/ti/p/@dummy" class="btn btn--line header__cta" target="_blank" rel="noopener">
+        <a href="https://line.me/ti/p/jXMVnNwZJJ" class="btn btn--line header__cta" target="_blank" rel="noopener">
           <span class="header__line-text-full">💬 LINE相談</span>
           <span class="header__line-text-short">💬 LINE</span>
         </a>
@@ -1275,33 +1396,46 @@
     </div>
   </header>
 
-  <!-- ① ファーストビュー -->
+  <!-- ============================================================
+       ① ファーストビュー
+       ============================================================ -->
   <section class="hero">
     <div class="container hero__inner">
+
       <div class="hero__badge">🩺 来院前の無料診断</div>
+
       <h1 class="hero__catch">
         その不調、<br />
         <em>原因から整えませんか？</em>
       </h1>
+
       <p class="hero__sub">
         肩こり・腰痛・首の痛みなど、<br />
         あなたの症状に合わせたケアの方向性を<br />
         今すぐ無料でお伝えします
       </p>
-      <a href="#form-section" class="btn btn--primary">今すぐ無料で診断する</a>
+
+      <a href="#form-section" class="btn btn--primary">
+        今すぐ無料で診断する
+      </a>
       <p class="hero__cta-note">所要時間 約1分 ・ 完全無料 ・ 登録不要</p>
+
       <div class="hero__features">
         <div class="hero__feature-item">✅ 原因がわかる</div>
         <div class="hero__feature-item">✅ ケアの方向性がわかる</div>
         <div class="hero__feature-item">✅ 来院前に確認できる</div>
         <div class="hero__feature-item">💬 LINEで相談もOK</div>
       </div>
+
     </div>
   </section>
 
-  <!-- ② 診断フォーム -->
+  <!-- ============================================================
+       ② 診断フォーム
+       ============================================================ -->
   <section class="section form-section" id="form-section">
     <div class="container">
+
       <div class="fade-in">
         <span class="section-label">DIAGNOSIS</span>
         <h2 class="section-title">あなたの不調の原因と<br />改善の方向性がわかります</h2>
@@ -1489,8 +1623,11 @@
         <p class="loading-sub">あなたの状態を確認しています</p>
       </div>
 
-      <!-- 診断結果 -->
+      <!-- ============================================================
+           診断結果
+           ============================================================ -->
       <div class="result-section" id="result-section">
+
         <div class="result-card fade-in">
           <!-- ヘッダー -->
           <div class="result-header">
@@ -1504,39 +1641,49 @@
             <div class="result-header__type" id="result-type">−</div>
           </div>
 
-          <!-- 自分ごと化フック -->
+          <!-- 自分ごと化フック（目立つ一文） -->
           <div class="result-hook" id="result-hook"></div>
 
           <div class="result-body">
+
             <!-- ① 診断結果 -->
             <div class="result-block">
               <div class="result-block__title"><span class="icon">🔍</span> 診断結果</div>
               <p id="result-diagnosis" class="result-para"></p>
             </div>
+
             <hr class="result-divider" />
+
             <!-- ② 放置リスク -->
             <div class="result-block">
               <div class="result-block__title"><span class="icon">⚠️</span> このまま放置すると…</div>
               <ul class="result-risk-list" id="result-risk-list"></ul>
             </div>
+
             <hr class="result-divider" />
+
             <!-- ③ 当院のアプローチ -->
             <div class="result-block">
               <div class="result-block__title"><span class="icon">💚</span> 当院のアプローチ</div>
               <p id="result-approach" class="result-para"></p>
             </div>
+
             <hr class="result-divider" />
+
             <!-- ③ 改善の方向性 -->
             <div class="result-block">
               <div class="result-block__title"><span class="icon">🌿</span> 改善の方向性</div>
               <p id="result-direction" class="result-para"></p>
             </div>
+
             <hr class="result-divider" />
+
             <!-- ④ ご提案 -->
             <div class="result-block result-block--proposal">
               <div class="result-block__title"><span class="icon">💡</span> ご提案</div>
               <p id="result-proposal" class="result-para"></p>
             </div>
+
             <hr class="result-divider" />
 
             <!-- CTA直前の一文 -->
@@ -1571,7 +1718,7 @@
                 </a>
                 <div class="result-cta-divider">迷っているならまずLINEで</div>
                 <!-- ▼ LINEのURLをここに設定してください ▼ -->
-                <a href="https://line.me/R/ti/p/@dummy" class="btn btn--line"
+                <a href="https://line.me/ti/p/jXMVnNwZJJ" class="btn btn--line"
                    target="_blank" rel="noopener"
                    style="font-size:15px;padding:16px 24px;">
                   💬 LINEで気軽に相談する（予約前にOK）
@@ -1587,13 +1734,17 @@
                 </button>
               </div>
             </div>
+
           </div>
         </div>
       </div><!-- /result-section -->
+
     </div>
   </section>
 
-  <!-- 信頼要素 -->
+  <!-- ============================================================
+       信頼要素（特徴）
+       ============================================================ -->
   <section class="section trust-section" id="trust-section" style="background:var(--color-bg-section);">
     <div class="container">
       <div class="fade-in" style="text-align:center;">
@@ -1633,7 +1784,9 @@
     </div>
   </section>
 
-  <!-- 期待できる変化 -->
+  <!-- ============================================================
+       期待できる変化セクション
+       ============================================================ -->
   <section class="section change-section" id="change-section">
     <div class="container">
       <div class="fade-in" style="text-align:center;">
@@ -1644,7 +1797,8 @@
           「自分に必要だから来る」方との出会いを増やします。
         </p>
       </div>
-      <div class="change-cards">
+            <div class="change-cards">
+
         <div class="change-card fade-in">
           <div class="change-card__icon">🎯</div>
           <div class="change-card__body">
@@ -1655,6 +1809,7 @@
             </div>
           </div>
         </div>
+
         <div class="change-card fade-in">
           <div class="change-card__icon">💬</div>
           <div class="change-card__body">
@@ -1665,6 +1820,7 @@
             </div>
           </div>
         </div>
+
         <div class="change-card fade-in">
           <div class="change-card__icon">📈</div>
           <div class="change-card__body">
@@ -1675,18 +1831,25 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- 売上試算（ROI） -->
+  <!-- ============================================================
+       売上試算セクション（経営者向け ROI）
+       ============================================================ -->
   <section class="roi-section" id="roi-section">
     <div class="container">
       <div class="fade-in" style="text-align:center;">
         <span class="section-label">BUSINESS IMPACT</span>
         <h2 class="section-title">集客・単価・リピートへの<br />具体的な影響</h2>
-        <p class="section-sub">LP導入によって変わる、3つの経営指標。</p>
+        <p class="section-sub">
+          LP導入によって変わる、3つの経営指標。
+        </p>
       </div>
+
+      <!-- 3指標 -->
       <div class="roi-metrics fade-in">
         <div class="roi-metric">
           <div class="roi-metric__icon">📥</div>
@@ -1704,6 +1867,8 @@
           <div class="roi-metric__label">来店前から信頼が築けるため<br />初回継続率が上がりやすい</div>
         </div>
       </div>
+
+      <!-- 試算シミュレーション -->
       <div class="roi-calc fade-in">
         <div class="roi-calc__title">📊 シンプルな試算例</div>
         <div class="roi-calc__row">
@@ -1727,7 +1892,9 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ============================================================
+       ABOUT セクション（この仕組みについて）
+       ============================================================ -->
   <section class="section about-section" id="about-section">
     <div class="container">
       <div class="fade-in" style="text-align:center;">
@@ -1739,6 +1906,7 @@
           来店までの流れを自動化することが可能です。
         </p>
       </div>
+
       <div class="about-flow fade-in">
         <div class="about-flow__item">
           <div class="about-flow__icon">🪪</div>
@@ -1758,13 +1926,16 @@
           <div class="about-flow__desc">来店・問い合わせへつなぐ</div>
         </div>
       </div>
+
       <p class="about-note fade-in">
         ※ 本LPはデモ用のサンプルです。正式制作の際は内容・デザイン・価格表記などをご確認のうえ調整します。
       </p>
     </div>
   </section>
 
-  <!-- 差別化テーブル -->
+  <!-- ============================================================
+       差別化セクション（vs 普通のHP / vs ChatGPT）
+       ============================================================ -->
   <section class="section diff-section" id="diff-section">
     <div class="container">
       <div class="fade-in" style="text-align:center;">
@@ -1775,6 +1946,7 @@
           情報を"見せるだけ"のHPでは生まれない、来店動機をつくります。
         </p>
       </div>
+
       <div class="fade-in" style="overflow-x:auto;">
         <table class="diff-table">
           <thead>
@@ -1816,7 +1988,9 @@
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- ============================================================
+       FAQ セクション（CTAの手前に配置）
+       ============================================================ -->
   <section class="section faq-section" id="faq-section">
     <div class="container">
       <div class="fade-in" style="text-align:center;">
@@ -1824,7 +1998,10 @@
         <h2 class="section-title">よくあるご質問</h2>
         <p class="section-sub">ご来院前に気になることがあれば、お気軽にご確認ください。</p>
       </div>
+
       <div class="faq-list fade-in">
+
+        <!-- Q1 -->
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
             <span class="faq-q-mark">Q</span>
@@ -1835,6 +2012,8 @@
             はい、もちろん大丈夫です。まず現在の状態をお聞きしたうえで、必要な施術をご案内します。無理にお勧めすることはありませんので、お気軽にどうぞ。
           </div>
         </div>
+
+        <!-- Q2 -->
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
             <span class="faq-q-mark">Q</span>
@@ -1845,6 +2024,8 @@
             動きやすい服装であれば問題ありません。着替えをご用意する必要はなく、普段着でお越しいただけます。詳しくはご予約の際にもご案内します。
           </div>
         </div>
+
+        <!-- Q3 -->
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
             <span class="faq-q-mark">Q</span>
@@ -1855,11 +2036,14 @@
             はい。まずは現在の身体の状態を知ることが大切だと考えています。初回では状態の確認と今後の方向性もお伝えしますので、「自分の身体のことを知る」という意味でも、受けていただく価値はあると思います。
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- CTAセクション -->
+  <!-- ============================================================
+       CTAセクション（予約 + LINE 2段構成）
+       ============================================================ -->
   <section class="cta-section" id="cta-section">
     <div class="container">
       <div class="fade-in" style="text-align:center;">
@@ -1870,6 +2054,8 @@
           実際に来院してはじめて、根本から整えることができます。<br />
           初回は特別価格でお試しいただけます。
         </p>
+
+        <!-- 初回価格 -->
         <div class="cta-price-card">
           <div class="cta-price-card__label">初回体験価格（完全予約制）</div>
           <div class="cta-price-card__amount">
@@ -1877,38 +2063,56 @@
           </div>
           <div class="cta-price-card__note">※ お一人様1回限り・完全予約制</div>
         </div>
+
+        <!-- ボタン2段 -->
         <div class="cta-btn-block">
+
+          <!-- ① メインCTA：今すぐ予約 -->
           <a href="https://ribuild.jp/contact/" class="btn btn--primary"
              target="_blank" rel="noopener"
              style="font-size:17px;padding:20px 28px;">
             📅 WEBで今すぐ予約する
           </a>
+
+          <!-- セパレーター -->
           <div class="cta-or">まだ迷っている方は</div>
+
+          <!-- LINE相談サブ説明 -->
           <div class="cta-line-notes">
             <span>💬 診断結果を送るだけでOK</span>
             <span>🙆 気になることを気軽に聞けます</span>
           </div>
+
+          <!-- ② サブCTA：LINE無料相談 -->
           <!-- ▼ LINEのURLをここに設定してください ▼ -->
-          <a href="https://line.me/R/ti/p/@dummy" class="btn btn--line"
+          <a href="https://line.me/ti/p/jXMVnNwZJJ" class="btn btn--line"
              target="_blank" rel="noopener"
              style="font-size:16px;padding:18px 28px;">
             💬 LINEで無料相談する
           </a>
+
         </div>
+
+        <!-- 安心材料 -->
         <div class="cta-trust">
           <span>✅ 無理な勧誘は一切ありません</span>
           <span>✅ ご相談だけでも大丈夫です</span>
           <span>✅ あなたに合った施術をご案内します</span>
         </div>
+
+        <!-- 電話 -->
         <p class="cta-tel">
           お電話でのご予約・相談：<a href="tel:090-6933-8025">090-6933-8025</a><br />
           <span style="font-size:12px;">受付時間 10:00〜20:00（不定休）</span>
         </p>
+
       </div>
     </div>
   </section>
 
-  <!-- フッター -->
+  <!-- ============================================================
+       フッター
+       ============================================================ -->
   <footer class="footer">
     <div class="container">
       <div class="footer__inner">
@@ -1918,10 +2122,12 @@
             <span>SEITAI REBUILD｜身体の再建、ここから。</span>
           </div>
         </div>
+
         <p class="footer__desc">
           肩こり・腰痛・首の痛みなど、慢性的な不調の根本改善に特化した整体院です。
           一人ひとりに合わせたオーダーメイド施術で、再発しにくい身体づくりをサポートします。
         </p>
+
         <div class="footer__info">
           <div>📍 〒390-0313 長野県松本市岡田下岡田18-1</div>
           <div style="padding-left:1.6em;">コニファーマンション岡田（旧レジデンス岡田）101</div>
@@ -1930,126 +2136,314 @@
           <div>🚗 松本駅から車で約15分・スーパーF近く</div>
           <div>🅿️ 建物前に1台分の駐車場あり</div>
         </div>
+
         <div class="footer__links">
+          <!-- ▼ 正式公開時に各ページのURLへ差し替えてください ▼ -->
           <a href="#">プライバシーポリシー</a>
           <a href="#">特定商取引法に基づく表記</a>
           <a href="#form-section">無料診断</a>
           <a href="#cta-section">予約する</a>
           <!-- ▼ LINEのURLをここに設定してください ▼ -->
-          <a href="https://line.me/R/ti/p/@dummy" target="_blank" rel="noopener">LINE相談</a>
+          <a href="https://line.me/ti/p/jXMVnNwZJJ" target="_blank" rel="noopener">LINE相談</a>
         </div>
       </div>
       <div class="footer__copy">© 2024 整体りびるど All Rights Reserved.</div>
     </div>
   </footer>
 
-  <!-- 固定CTAバー -->
+  <!-- 固定CTAバー（診断後に浮上） ▼ LINEのURLは正式公開前に差し替えてください ▼ -->
   <div class="sticky-bar" id="sticky-bar">
+    <!-- 左：LINE相談（迷っている人向け）-->
     <!-- ▼ LINEのURLをここに設定してください ▼ -->
-    <a href="https://line.me/R/ti/p/@dummy" class="sticky-bar__line" target="_blank" rel="noopener">
+    <a href="https://line.me/ti/p/jXMVnNwZJJ" class="sticky-bar__line" target="_blank" rel="noopener">
       <span class="label">💬 LINEで相談する</span>
       <span class="sub">無理な営業なし・無料</span>
     </a>
+    <!-- 右：予約（今すぐ客向け）-->
     <a href="https://ribuild.jp/contact/" class="sticky-bar__reserve" target="_blank" rel="noopener">
       <span class="label">📅 今すぐ予約する</span>
       <span class="sub">初回 ¥3,980〜</span>
     </a>
   </div>
 
+
+  <!-- JavaScript ：診断ロジック・FAQ・スクロールアニメーション -->
   <script>
+    // ============================================================
+    // 診断ロジック：症状・期間・強さの組み合わせで文章を生成
+    // ============================================================
+
+    // 症状ごとの文言
     const symptomMap = {
-      '肩こり': { part:'肩・首まわり', cause:'肩まわりの筋肉・骨格への偏った負荷', pattern:'「その場では楽になるが、すぐ戻る」', selfcare:'肩甲骨まわりのストレッチや姿勢改善' },
-      '首':     { part:'首・頸椎まわり', cause:'首への慢性的な負荷と頸部筋の緊張', pattern:'「首が回りにくい・引っ張られる感じがある」', selfcare:'頸部のストレッチと頭の位置を意識した姿勢改善' },
-      '腕':     { part:'肩〜腕・肘まわり', cause:'腕・肩まわりへの繰り返し動作による負担蓄積', pattern:'「腕がだるい・しびれ感や重さを感じる」', selfcare:'肩〜腕のストレッチと筋肉のリリース' },
-      '腰痛':   { part:'腰・骨盤まわり', cause:'腰部への継続的な圧力と筋緊張', pattern:'「動くと痛む・長時間の同姿勢がつらい」', selfcare:'体幹強化と骨盤まわりのストレッチ' },
-      '足':     { part:'腰〜股関節・脚', cause:'足・脚への継続的な負担と血行不良', pattern:'「足がだるい・むくみやすい・長時間歩くと痛む」', selfcare:'下半身のストレッチと血流改善のセルフケア' },
-      '全身疲労':{ part:'全身・自律神経系', cause:'全身的な疲労の蓄積と自律神経の乱れ', pattern:'「疲れが取れない・身体が重い」', selfcare:'呼吸法や全身のリラクゼーションケア' },
-      'その他': { part:'特定の部位', cause:'特定部位への慢性的な負担の蓄積', pattern:'「不快感が繰り返し起こる」', selfcare:'該当部位のストレッチや姿勢の見直し' }
+      '肩こり': {
+        part:    '肩・首まわり',
+        cause:   '肩まわりの筋肉・骨格への偏った負荷',
+        pattern: '「その場では楽になるが、すぐ戻る」',
+        selfcare:'肩甲骨まわりのストレッチや姿勢改善'
+      },
+      '首': {
+        part:    '首・頸椎まわり',
+        cause:   '首への慢性的な負荷と頸部筋の緊張',
+        pattern: '「首が回りにくい・引っ張られる感じがある」',
+        selfcare:'頸部のストレッチと頭の位置を意識した姿勢改善'
+      },
+      '腕': {
+        part:    '肩〜腕・肘まわり',
+        cause:   '腕・肩まわりへの繰り返し動作による負担蓄積',
+        pattern: '「腕がだるい・しびれ感や重さを感じる」',
+        selfcare:'肩〜腕のストレッチと筋肉のリリース'
+      },
+      '腰痛': {
+        part:    '腰・骨盤まわり',
+        cause:   '腰部への継続的な圧力と筋緊張',
+        pattern: '「動くと痛む・長時間の同姿勢がつらい」',
+        selfcare:'体幹強化と骨盤まわりのストレッチ'
+      },
+      '足': {
+        part:    '腰〜股関節・脚',
+        cause:   '足・脚への継続的な負担と血行不良',
+        pattern: '「足がだるい・むくみやすい・長時間歩くと痛む」',
+        selfcare:'下半身のストレッチと血流改善のセルフケア'
+      },
+      '全身疲労': {
+        part:    '全身・自律神経系',
+        cause:   '全身的な疲労の蓄積と自律神経の乱れ',
+        pattern: '「疲れが取れない・身体が重い」',
+        selfcare:'呼吸法や全身のリラクゼーションケア'
+      },
+      'その他': {
+        part:    '特定の部位',
+        cause:   '特定部位への慢性的な負担の蓄積',
+        pattern: '「不快感が繰り返し起こる」',
+        selfcare:'該当部位のストレッチや姿勢の見直し'
+      }
     };
 
+    // 期間ごとの文言
     const durationMap = {
-      '数日':     { text:'まだ始まったばかりです。\n', status:'この段階でのケアが最も効果的です。\n悪化する前に、早めに整えましょう。', urgency:'今の状態なら\n比較的短期間で整えられる可能性があります。' },
-      '1週間以上': { text:'すでに1週間以上続いています。\n', status:'継続的なパターンが定着し始めています。\nこのまま放置すると慢性化しやすいです。', urgency:'慢性化する前に\n根本からアプローチを始めることが重要です。' },
-      '1ヶ月以上': { text:'1ヶ月以上、症状が続いています。\n', status:'慢性化が進んでいる可能性があります。\nこの状態が続くほど改善に時間がかかります。', urgency:'**早めに根本アプローチを始めることをお勧めします。**' },
-      '半年以上': { text:'半年以上の慢性的な状態です。\n', status:'体が「この状態を当たり前」と記憶しています。\n丁寧なアプローチで少しずつ変えていきます。', urgency:'**長引くほど、回復に時間がかかります。\n今すぐ動くことが最短の近道です。**' }
+      '数日':     {
+        text:    'まだ始まったばかりです。\n',
+        status:  'この段階でのケアが最も効果的です。\n悪化する前に、早めに整えましょう。',
+        urgency: '今の状態なら\n比較的短期間で整えられる可能性があります。'
+      },
+      '1週間以上': {
+        text:    'すでに1週間以上続いています。\n',
+        status:  '継続的なパターンが定着し始めています。\nこのまま放置すると慢性化しやすいです。',
+        urgency: '慢性化する前に\n根本からアプローチを始めることが重要です。'
+      },
+      '1ヶ月以上': {
+        text:    '1ヶ月以上、症状が続いています。\n',
+        status:  '慢性化が進んでいる可能性があります。\nこの状態が続くほど改善に時間がかかります。',
+        urgency: '**早めに根本アプローチを始めることをお勧めします。**'
+      },
+      '半年以上': {
+        text:    '半年以上の慢性的な状態です。\n',
+        status:  '体が「この状態を当たり前」と記憶しています。\n丁寧なアプローチで少しずつ変えていきます。',
+        urgency: '**長引くほど、回復に時間がかかります。\n今すぐ動くことが最短の近道です。**'
+      }
     };
 
+    // 強さごとの文言
     const intensityMap = {
-      '軽い': { text:'現時点では軽度ですが\n放置すると慢性化するリスクがあります。', approach:'まず、身体の状態を正確に把握します。\n予防的なアプローチから始めます。\n\n**軽い段階でのケアが最も効果的です。**', label:'軽度' },
-      '普通': { text:'日常生活にも影響が出ている状態です。', approach:'症状の根本原因を特定し\n日常への影響を和らげます。', label:'中程度' },
-      '強い': { text:'すでに日常生活への影響が大きい状態です。\n早めの対処が必要です。', approach:'集中的なアプローチで早期改善を目指します。\n\n**症状が強い今こそ、整えるタイミングです。**', label:'強め' }
+      '軽い': {
+        text:     '現時点では軽度ですが\n放置すると慢性化するリスクがあります。',
+        approach: 'まず、身体の状態を正確に把握します。\n予防的なアプローチから始めます。\n\n**軽い段階でのケアが最も効果的です。**',
+        label:    '軽度'
+      },
+      '普通': {
+        text:     '日常生活にも影響が出ている状態です。',
+        approach: '症状の根本原因を特定し\n日常への影響を和らげます。',
+        label:    '中程度'
+      },
+      '強い': {
+        text:     'すでに日常生活への影響が大きい状態です。\n早めの対処が必要です。',
+        approach: '集中的なアプローチで早期改善を目指します。\n\n**症状が強い今こそ、整えるタイミングです。**',
+        label:    '強め'
+      }
     };
 
+    // 生活スタイル×症状の組み合わせで「一撃で刺す自分ごと化フック」を返す
     const hookMap = {
-      'デスクワーク中心_肩こり': 'あなたの場合、1日8時間以上の前かがみ姿勢が続くことで、首〜肩への負担が積み重なっています。',
-      'デスクワーク中心_首': 'あなたの場合、1日中画面を見続ける前かがみ姿勢で、首への負担が毎日蓄積しています。',
-      'デスクワーク中心_腕': 'あなたの場合、1日中キーボード・マウスを使い続けることで、腕〜肩への疲労が蓄積しています。',
-      'デスクワーク中心_腰痛': 'あなたの場合、1日中イスに座り続けることで、腰への圧力が毎日蓄積しています。',
-      'デスクワーク中心_足': 'あなたの場合、1日中座ったまま動かないことで、脚の血流が滞り、だるさ・むくみが起きやすくなっています。',
-      'デスクワーク中心_全身疲労': 'あなたの場合、長時間の集中作業で体を動かす機会が減り、全身の疲労が抜けにくくなっています。',
-      'デスクワーク中心_その他': 'あなたの場合、1日8時間以上の固定姿勢が続くことで、特定の部位への負担が蓄積しています。',
-      '立ち仕事_肩こり': 'あなたの場合、何時間も立ち続ける姿勢が毎日積み重なり、肩・首への緊張が慢性化しています。',
-      '立ち仕事_首': 'あなたの場合、立ち仕事中の前傾姿勢が続くことで、首〜肩への緊張が慢性化しています。',
-      '立ち仕事_腕': 'あなたの場合、接客・作業で腕を使い続けることで、肩〜腕への疲労が毎日蓄積しています。',
-      '立ち仕事_腰痛': 'あなたの場合、1日中立ち続けることで、腰・骨盤への圧力が毎日積み重なっています。',
-      '立ち仕事_足': 'あなたの場合、何時間も立ち続けることで、足への血行不良とだるさが毎日蓄積しています。',
-      '立ち仕事_全身疲労': 'あなたの場合、終日立ったまま動き続けることで、脚〜全身の疲労が回復しにくくなっています。',
-      '立ち仕事_その他': 'あなたの場合、長時間の立ち仕事で下半身から積み重なった負担が、体の不調として出ています。',
-      '肉体労働_肩こり': 'あなたの場合、重いものを持つ・腕を使う動作が毎日繰り返されることで、肩まわりへの負荷が蓄積しています。',
-      '肉体労働_首': 'あなたの場合、重いものを持つ・見上げる動作が繰り返されることで、首への慢性的な負担が蓄積しています。',
-      '肉体労働_腕': 'あなたの場合、工具を使う・重いものを持つ動作が繰り返されることで、腕〜肘への偏った負荷が蓄積しています。',
-      '肉体労働_腰痛': 'あなたの場合、重いものを持ち上げる動作が1日に何度も繰り返されることで、腰への負担が慢性的に蓄積しています。',
-      '肉体労働_足': 'あなたの場合、重い荷物を運ぶ・長時間動き続けることで、脚への疲労が慢性的に蓄積しています。',
-      '肉体労働_全身疲労': 'あなたの場合、体を使い続けることで蓄積した疲労が、十分に回復できない状態になっています。',
-      '肉体労働_その他': 'あなたの場合、繰り返しの動作で特定部位に偏った負荷がかかり続けています。',
-      '家事・育児中心_肩こり': 'あなたの場合、抱っこや前かがみ姿勢を1日に何十回も繰り返すことで、肩・首への負担が蓄積しています。',
-      '家事・育児中心_首': 'あなたの場合、下を向いての作業や授乳姿勢が毎日続くことで、首への負担が蓄積しています。',
-      '家事・育児中心_腕': 'あなたの場合、抱っこや荷物を持ち続ける動作が1日に何十回も繰り返されることで、腕への疲労が蓄積しています。',
-      '家事・育児中心_腰痛': 'あなたの場合、中腰・抱っこを1日に何十回も繰り返すことで、腰への負担が慢性的に積み重なっています。',
-      '家事・育児中心_足': 'あなたの場合、1日中動き続けることで脚への疲労が蓄積し、回復する時間が取れていません。',
-      '家事・育児中心_全身疲労': 'あなたの場合、休む暇もなく動き続けることで、疲労が回復しないまま毎日蓄積し続けています。',
-      '家事・育児中心_その他': 'あなたの場合、毎日繰り返す家事・育児の動作が、体全体の疲労として蓄積しています。',
-      '運動習慣あり_肩こり': 'あなたの場合、運動で使う筋肉と使わない筋肉の偏りが、肩まわりの不均衡として現れています。',
-      '運動習慣あり_首': 'あなたの場合、運動フォームや体の使い方の偏りが、首まわりへの慢性的な負担となっています。',
-      '運動習慣あり_腕': 'あなたの場合、腕を使う運動の繰り返しで、特定の筋肉・腱への偏った負荷が蓄積しています。',
-      '運動習慣あり_腰痛': 'あなたの場合、繰り返しの運動動作と疲労の蓄積が、腰への慢性的な負担につながっています。',
-      '運動習慣あり_足': 'あなたの場合、運動による脚への疲労が十分に回復しないまま積み重なり、だるさ・痛みが出やすくなっています。',
-      '運動習慣あり_全身疲労': 'あなたの場合、運動による疲労が十分に回復しないまま積み重なり、全身がだるい状態になっています。',
-      '運動習慣あり_その他': 'あなたの場合、運動による負荷が特定部位に集中し、疲労として蓄積している可能性があります。',
-      'その他_肩こり': 'あなたの場合、日常の姿勢・動作のクセが積み重なり、肩まわりへの負担が慢性化しています。',
-      'その他_首': 'あなたの場合、日常の姿勢・動作のクセが積み重なり、首まわりへの負担が慢性化しています。',
-      'その他_腕': 'あなたの場合、日常の動作のクセが積み重なり、腕〜肩への負担が蓄積しています。',
-      'その他_腰痛': 'あなたの場合、日常の姿勢・動作のクセが積み重なり、腰への負担が慢性的に蓄積しています。',
-      'その他_足': 'あなたの場合、日常の姿勢や動作のクセが積み重なり、足〜脚への負担が慢性化しています。',
-      'その他_全身疲労': 'あなたの場合、日々の疲労が十分に回復できないまま積み重なり、体全体がだるい状態になっています。',
-      'その他_その他': 'あなたの場合、日常のクセや生活習慣が積み重なり、特定の部位への負担が慢性化しています。',
+      // ── デスクワーク中心 ──
+      'デスクワーク中心_肩こり':
+        'あなたの場合、1日8時間以上の前かがみ姿勢が続くことで、首〜肩への負担が積み重なっています。',
+      'デスクワーク中心_首':
+        'あなたの場合、1日中画面を見続ける前かがみ姿勢で、首への負担が毎日蓄積しています。',
+      'デスクワーク中心_腕':
+        'あなたの場合、1日中キーボード・マウスを使い続けることで、腕〜肩への疲労が蓄積しています。',
+      'デスクワーク中心_腰痛':
+        'あなたの場合、1日中イスに座り続けることで、腰への圧力が毎日蓄積しています。',
+      'デスクワーク中心_足':
+        'あなたの場合、1日中座ったまま動かないことで、脚の血流が滞り、だるさ・むくみが起きやすくなっています。',
+      'デスクワーク中心_全身疲労':
+        'あなたの場合、長時間の集中作業で体を動かす機会が減り、全身の疲労が抜けにくくなっています。',
+      'デスクワーク中心_その他':
+        'あなたの場合、1日8時間以上の固定姿勢が続くことで、特定の部位への負担が蓄積しています。',
+
+      // ── 立ち仕事 ──
+      '立ち仕事_肩こり':
+        'あなたの場合、何時間も立ち続ける姿勢が毎日積み重なり、肩・首への緊張が慢性化しています。',
+      '立ち仕事_首':
+        'あなたの場合、立ち仕事中の前傾姿勢が続くことで、首〜肩への緊張が慢性化しています。',
+      '立ち仕事_腕':
+        'あなたの場合、接客・作業で腕を使い続けることで、肩〜腕への疲労が毎日蓄積しています。',
+      '立ち仕事_腰痛':
+        'あなたの場合、1日中立ち続けることで、腰・骨盤への圧力が毎日積み重なっています。',
+      '立ち仕事_足':
+        'あなたの場合、何時間も立ち続けることで、足への血行不良とだるさが毎日蓄積しています。',
+      '立ち仕事_全身疲労':
+        'あなたの場合、終日立ったまま動き続けることで、脚〜全身の疲労が回復しにくくなっています。',
+      '立ち仕事_その他':
+        'あなたの場合、長時間の立ち仕事で下半身から積み重なった負担が、体の不調として出ています。',
+
+      // ── 肉体労働 ──
+      '肉体労働_肩こり':
+        'あなたの場合、重いものを持つ・腕を使う動作が毎日繰り返されることで、肩まわりへの負荷が蓄積しています。',
+      '肉体労働_首':
+        'あなたの場合、重いものを持つ・見上げる動作が繰り返されることで、首への慢性的な負担が蓄積しています。',
+      '肉体労働_腕':
+        'あなたの場合、工具を使う・重いものを持つ動作が繰り返されることで、腕〜肘への偏った負荷が蓄積しています。',
+      '肉体労働_腰痛':
+        'あなたの場合、重いものを持ち上げる動作が1日に何度も繰り返されることで、腰への負担が慢性的に蓄積しています。',
+      '肉体労働_足':
+        'あなたの場合、重い荷物を運ぶ・長時間動き続けることで、脚への疲労が慢性的に蓄積しています。',
+      '肉体労働_全身疲労':
+        'あなたの場合、体を使い続けることで蓄積した疲労が、十分に回復できない状態になっています。',
+      '肉体労働_その他':
+        'あなたの場合、繰り返しの動作で特定部位に偏った負荷がかかり続けています。',
+
+      // ── 家事・育児中心 ──
+      '家事・育児中心_肩こり':
+        'あなたの場合、抱っこや前かがみ姿勢を1日に何十回も繰り返すことで、肩・首への負担が蓄積しています。',
+      '家事・育児中心_首':
+        'あなたの場合、下を向いての作業や授乳姿勢が毎日続くことで、首への負担が蓄積しています。',
+      '家事・育児中心_腕':
+        'あなたの場合、抱っこや荷物を持ち続ける動作が1日に何十回も繰り返されることで、腕への疲労が蓄積しています。',
+      '家事・育児中心_腰痛':
+        'あなたの場合、中腰・抱っこを1日に何十回も繰り返すことで、腰への負担が慢性的に積み重なっています。',
+      '家事・育児中心_足':
+        'あなたの場合、1日中動き続けることで脚への疲労が蓄積し、回復する時間が取れていません。',
+      '家事・育児中心_全身疲労':
+        'あなたの場合、休む暇もなく動き続けることで、疲労が回復しないまま毎日蓄積し続けています。',
+      '家事・育児中心_その他':
+        'あなたの場合、毎日繰り返す家事・育児の動作が、体全体の疲労として蓄積しています。',
+
+      // ── 運動習慣あり ──
+      '運動習慣あり_肩こり':
+        'あなたの場合、運動で使う筋肉と使わない筋肉の偏りが、肩まわりの不均衡として現れています。',
+      '運動習慣あり_首':
+        'あなたの場合、運動フォームや体の使い方の偏りが、首まわりへの慢性的な負担となっています。',
+      '運動習慣あり_腕':
+        'あなたの場合、腕を使う運動の繰り返しで、特定の筋肉・腱への偏った負荷が蓄積しています。',
+      '運動習慣あり_腰痛':
+        'あなたの場合、繰り返しの運動動作と疲労の蓄積が、腰への慢性的な負担につながっています。',
+      '運動習慣あり_足':
+        'あなたの場合、運動による脚への疲労が十分に回復しないまま積み重なり、だるさ・痛みが出やすくなっています。',
+      '運動習慣あり_全身疲労':
+        'あなたの場合、運動による疲労が十分に回復しないまま積み重なり、全身がだるい状態になっています。',
+      '運動習慣あり_その他':
+        'あなたの場合、運動による負荷が特定部位に集中し、疲労として蓄積している可能性があります。',
+
+      // ── その他 ──
+      'その他_肩こり':
+        'あなたの場合、日常の姿勢・動作のクセが積み重なり、肩まわりへの負担が慢性化しています。',
+      'その他_首':
+        'あなたの場合、日常の姿勢・動作のクセが積み重なり、首まわりへの負担が慢性化しています。',
+      'その他_腕':
+        'あなたの場合、日常の動作のクセが積み重なり、腕〜肩への負担が蓄積しています。',
+      'その他_腰痛':
+        'あなたの場合、日常の姿勢・動作のクセが積み重なり、腰への負担が慢性的に蓄積しています。',
+      'その他_足':
+        'あなたの場合、日常の姿勢や動作のクセが積み重なり、足〜脚への負担が慢性化しています。',
+      'その他_全身疲労':
+        'あなたの場合、日々の疲労が十分に回復できないまま積み重なり、体全体がだるい状態になっています。',
+      'その他_その他':
+        'あなたの場合、日常のクセや生活習慣が積み重なり、特定の部位への負担が慢性化しています。',
     };
 
+    // 生活スタイル別の「だからか」説明文
     const lifestyleMap = {
-      'デスクワーク中心': { label:'デスクワーク', text:'1日の大半をイスに座ったまま過ごすことで\n首・肩・腰に負担が積み重なっています。\n\n前かがみ姿勢や\n画面を見続ける時間が長いほど\n筋肉は固まり、血流も滞っていきます。' },
-      '立ち仕事':         { label:'立ち仕事', text:'何時間も立ち続けることで\n腰・骨盤への圧力が毎日蓄積しています。\n\n同じ姿勢で立つほど\n腰椎への負担は倍増し\n下半身の血流も滞りやすくなります。' },
-      '肉体労働':         { label:'肉体労働', text:'重いものを持ったり\n同じ動作を何百回と繰り返すことで\n特定の筋肉・関節に偏った負荷がかかります。\n\n気づかないうちに\n身体のバランスが崩れていきます。' },
-      '家事・育児中心':   { label:'家事・育児', text:'中腰・抱っこ・かがみ込みなど\n体に負担のかかる動作が\n1日に何十回も繰り返されています。\n\n休む間もなく動き続けるため\n疲労だけが蓄積していきます。' },
-      '運動習慣あり':     { label:'運動習慣あり', text:'運動でよく使う筋肉と\nほとんど使われない筋肉に\n偏りが生まれやすい状態です。\n\n疲労が十分に回復しないまま動き続けると\n特定部位への負荷が慢性的に蓄積します。' },
-      'その他':           { label:'その他', text:'日常の姿勢・動作のクセが積み重なることで\n特定の部位に負担がかかり続けています。\n\n「思い当たる原因がない」\nという方ほど、こうした蓄積が原因のケースが多いです。' },
+      'デスクワーク中心': {
+        label: 'デスクワーク',
+        text:  '1日の大半をイスに座ったまま過ごすことで\n首・肩・腰に負担が積み重なっています。\n\n前かがみ姿勢や\n画面を見続ける時間が長いほど\n筋肉は固まり、血流も滞っていきます。',
+      },
+      '立ち仕事': {
+        label: '立ち仕事',
+        text:  '何時間も立ち続けることで\n腰・骨盤への圧力が毎日蓄積しています。\n\n同じ姿勢で立つほど\n腰椎への負担は倍増し\n下半身の血流も滞りやすくなります。',
+      },
+      '肉体労働': {
+        label: '肉体労働',
+        text:  '重いものを持ったり\n同じ動作を何百回と繰り返すことで\n特定の筋肉・関節に偏った負荷がかかります。\n\n気づかないうちに\n身体のバランスが崩れていきます。',
+      },
+      '家事・育児中心': {
+        label: '家事・育児',
+        text:  '中腰・抱っこ・かがみ込みなど\n体に負担のかかる動作が\n1日に何十回も繰り返されています。\n\n休む間もなく動き続けるため\n疲労だけが蓄積していきます。',
+      },
+      '運動習慣あり': {
+        label: '運動習慣あり',
+        text:  '運動でよく使う筋肉と\nほとんど使われない筋肉に\n偏りが生まれやすい状態です。\n\n疲労が十分に回復しないまま動き続けると\n特定部位への負荷が慢性的に蓄積します。',
+      },
+      'その他': {
+        label: 'その他',
+        text:  '日常の姿勢・動作のクセが積み重なることで\n特定の部位に負担がかかり続けています。\n\n「思い当たる原因がない」\nという方ほど、こうした蓄積が原因のケースが多いです。',
+      },
     };
 
+    // 症状別リスクリスト（放置した場合）
     const riskMap = {
-      '首':     [ '数週間後には、首の動きがさらに制限され、振り向くのが辛くなりやすい', '1〜2ヶ月後には頭痛・めまいが加わり、首と頭が同時に辛い状態になることも', '3ヶ月後には頸椎への負担が蓄積し、しびれや腕への影響が出るケースもある', '放置が続くほど、神経への圧迫リスクが高まり回復に時間がかかっていく' ],
-      '腕':     [ '数週間後には腕のだるさ・しびれが日常的に続くようになりやすい', '1〜2ヶ月後には肘・手首にも影響が広がり、細かい作業が辛くなることも', '3ヶ月後には腕を使うたびに痛みや不快感が出る状態になるケースがある', '放置が続くほど、神経・腱への影響が深まり、回復に時間がかかっていく' ],
-      '足':     [ '数週間後には、夕方になると足がパンパンに張る状態が毎日続くようになりやすい', '1〜2ヶ月後には血行不良が慢性化し、冷え・むくみが取れにくくなる', '3ヶ月後には歩くだけで痛みや疲れを感じ、外出が億劫になるケースもある', '放置が続くほど、股関節・腰への二次的な影響が広がっていく' ],
-      '肩こり': [ '数週間後には、首・頭部にまで痛みが広がりやすくなる', '1〜2ヶ月後には肩の動きが制限され、腕を上げるのに支障が出る場合も', '3ヶ月後には"何をしても取れない疲れ"として体に定着しやすい', '放置が続くほど、仕事・日常のパフォーマンスが毎日じわじわ下がっていく' ],
-      '腰痛':   [ '数週間後には、痛みが臀部・太ももへと広がり始めるケースが多い', '1〜2ヶ月後には姿勢の崩れが膝・股関節にも波及し、全身が連動して歪んでいく', '3ヶ月後には、長く立つ・歩くだけで痛みが走るようになることも', '半年後には回復に数ヶ月〜それ以上かかる状態になっている可能性がある' ],
-      '全身疲労':[ '2〜3ヶ月後には"慢性疲労"として定着し、何をしても疲れが取れなくなる', '3ヶ月後には毎朝起きた瞬間からすでに疲れている、という状態になりやすい', '半年後には免疫力が落ち、風邪・体調不良が繰り返しやすくなる', '放置が続くほど集中力・判断力が低下し、仕事・日常生活の質が全体的に落ちていく' ],
-      'その他': [ '数週間後には慢性化が進み、"ふとした動作で痛む"状態になりやすい', '1〜2ヶ月後には回復に必要な施術の回数・期間が増えていく', '3ヶ月後には不調が他の部位にも広がり、複数箇所が同時に痛む状態になることも', '半年後には日常のパフォーマンス・QOLが確実に落ちていく' ],
+      '首': [
+        '数週間後には、首の動きがさらに制限され、振り向くのが辛くなりやすい',
+        '1〜2ヶ月後には頭痛・めまいが加わり、首と頭が同時に辛い状態になることも',
+        '3ヶ月後には頸椎への負担が蓄積し、しびれや腕への影響が出るケースもある',
+        '放置が続くほど、神経への圧迫リスクが高まり回復に時間がかかっていく',
+      ],
+            '腕': [
+        '数週間後には腕のだるさ・しびれが日常的に続くようになりやすい',
+        '1〜2ヶ月後には肘・手首にも影響が広がり、細かい作業が辛くなることも',
+        '3ヶ月後には腕を使うたびに痛みや不快感が出る状態になるケースがある',
+        '放置が続くほど、神経・腱への影響が深まり、回復に時間がかかっていく',
+      ],
+      '足': [
+        '数週間後には、夕方になると足がパンパンに張る状態が毎日続くようになりやすい',
+        '1〜2ヶ月後には血行不良が慢性化し、冷え・むくみが取れにくくなる',
+        '3ヶ月後には歩くだけで痛みや疲れを感じ、外出が億劫になるケースもある',
+        '放置が続くほど、股関節・腰への二次的な影響が広がっていく',
+      ],
+      '肩こり': [
+        '数週間後には、首・頭部にまで痛みが広がりやすくなる',
+        '1〜2ヶ月後には肩の動きが制限され、腕を上げるのに支障が出る場合も',
+        '3ヶ月後には"何をしても取れない疲れ"として体に定着しやすい',
+        '放置が続くほど、仕事・日常のパフォーマンスが毎日じわじわ下がっていく',
+      ],
+      '腰痛': [
+        '数週間後には、痛みが臀部・太ももへと広がり始めるケースが多い',
+        '1〜2ヶ月後には姿勢の崩れが膝・股関節にも波及し、全身が連動して歪んでいく',
+        '3ヶ月後には、長く立つ・歩くだけで痛みが走るようになることも',
+        '半年後には回復に数ヶ月〜それ以上かかる状態になっている可能性がある',
+      ],
+      '全身疲労': [
+        '2〜3ヶ月後には"慢性疲労"として定着し、何をしても疲れが取れなくなる',
+        '3ヶ月後には毎朝起きた瞬間からすでに疲れている、という状態になりやすい',
+        '半年後には免疫力が落ち、風邪・体調不良が繰り返しやすくなる',
+        '放置が続くほど集中力・判断力が低下し、仕事・日常生活の質が全体的に落ちていく',
+      ],
+      'その他': [
+        '数週間後には慢性化が進み、"ふとした動作で痛む"状態になりやすい',
+        '1〜2ヶ月後には回復に必要な施術の回数・期間が増えていく',
+        '3ヶ月後には不調が他の部位にも広がり、複数箇所が同時に痛む状態になることも',
+        '半年後には日常のパフォーマンス・QOLが確実に落ちていく',
+      ],
     };
 
+    // 期間が長い場合に追加するリスク
     const durationRiskMap = {
       '1ヶ月以上': '今後さらに放置すると、必要な施術の回数・期間が増えていく傾向がある',
       '半年以上':  '体が"この状態が当たり前"と記憶してしまい、回復に数ヶ月単位かかる場合もある',
     };
 
+    // 診断文章を生成する関数（symptoms・lifestyles はどちらも配列）
     function buildResult(symptoms, duration, intensity, lifestyles) {
+      // 主症状・主ライフスタイル（先頭）をベースに文章生成
       const primarySymptom = symptoms[0];
       const primaryLifestyle = lifestyles[0];
       const s = symptomMap[primarySymptom] || symptomMap['その他'];
@@ -2058,44 +2452,277 @@
       const ls = lifestyleMap[primaryLifestyle] || lifestyleMap['その他'];
       const hookKey = primaryLifestyle + '_' + primarySymptom;
       const hook = hookMap[hookKey] || hookMap['その他_その他'] || 'あなたの場合、日常の負担が積み重なり、体に影響が出ている状態です。';
+
+      // 複数ライフスタイルのラベル
       const lifestyleLabel = lifestyles.map(l => (lifestyleMap[l] || lifestyleMap['その他']).label).join('・');
-      const durationPrefix = { '数日':'急性', '1週間以上':'初期慢性', '1ヶ月以上':'慢性', '半年以上':'重慢性' }[duration] || '慢性';
-      const lifestyleShort = { 'デスクワーク中心':'デスクワーク', '立ち仕事':'立ち仕事', '肉体労働':'肉体労働', '家事・育児中心':'家事育児', '運動習慣あり':'スポーツ', 'その他':'生活習慣' }[primaryLifestyle] || '生活習慣';
-      const symptomShort   = { '肩こり':'肩こり', '首':'首こり', '腕':'腕しびれ', '腰痛':'腰痛', '足':'脚疲労', '全身疲労':'全身疲労', 'その他':'複合不調' }[primarySymptom] || '複合不調';
+
+      // ── タイプ名を生成 ──
+      const durationPrefix = { '数日': '急性', '1週間以上': '初期慢性', '1ヶ月以上': '慢性', '半年以上': '重慢性' }[duration] || '慢性';
+      const lifestyleShort = { 'デスクワーク中心': 'デスクワーク', '立ち仕事': '立ち仕事', '肉体労働': '肉体労働', '家事・育児中心': '家事育児', '運動習慣あり': 'スポーツ', 'その他': '生活習慣' }[primaryLifestyle] || '生活習慣';
+      const symptomShort   = { '肩こり': '肩こり', '首': '首こり', '腕': '腕しびれ', '腰痛': '腰痛', '足': '脚疲労', '全身疲労': '全身疲労', 'その他': '複合不調' }[primarySymptom] || '複合不調';
       const typeName = `${durationPrefix}${lifestyleShort}${symptomShort}タイプ`;
+
+      // 選択された全症状のリスクを統合（重複除去）
       const seen = new Set();
       const baseRisks = [];
       symptoms.forEach(function(sym) {
         const risks = riskMap[sym] || riskMap['その他'];
         risks.forEach(function(r) { if (!seen.has(r)) { seen.add(r); baseRisks.push(r); } });
       });
+      // 最大6件に絞る（多すぎを防ぐ）
       if (baseRisks.length > 6) baseRisks.splice(6);
       if (durationRiskMap[duration]) baseRisks.push(durationRiskMap[duration]);
+
+      // 症状ラベル（複数なら「肩こり・腰痛」形式）
       const symptomLabel = symptoms.join('・');
+
       return {
-        symptomLabel, durationLabel: duration, intensityLabel: i.label, lifestyleLabel, typeName, hook, risks: baseRisks,
+        symptomLabel:    symptomLabel,
+        durationLabel:   duration,
+        intensityLabel:  i.label,
+        lifestyleLabel:  lifestyleLabel,
+        typeName:        typeName,
+        hook:            hook,
+        risks:           baseRisks,
+
         diagnosis:
           `**${s.cause}による可能性が高いです。**\n\n` +
           (symptoms.length > 1 ? `【選択された症状：${symptomLabel}】\n複数の症状が重なっているため\nより早めのケアが重要です。\n\n` : '') +
-          `【あなたの場合（${lifestyleLabel}の方に多いパターン）】\n${ls.text}\n\nだからこそ、\n**${s.part}への負担が蓄積しやすかった**\nと考えられます。\n\n${d.text}${i.text}\n\nこのタイプの特徴として\n${s.pattern}\nというケースが多く見られます。\n\n${d.status}`,
+          `【あなたの場合（${lifestyleLabel}の方に多いパターン）】\n` +
+          `${ls.text}\n\n` +
+          `だからこそ、\n` +
+          `**${s.part}への負担が蓄積しやすかった**\n` +
+          `と考えられます。\n\n` +
+          `${d.text}` +
+          `${i.text}\n\n` +
+          `このタイプの特徴として\n` +
+          `${s.pattern}\n` +
+          `というケースが多く見られます。\n\n` +
+          `${d.status}`,
+
         approach:
-          `整体りびるどでは\nその場しのぎでほぐすのではなく\n**根本から整えます。**\n\n施術前に必ず確認すること：\n・なぜ、その状態になっているのか\n・どこに負担が集中しているのか\n\nこの2点を踏まえて施術を行います。\n\n${i.approach}`,
+          `整体りびるどでは\n` +
+          `その場しのぎでほぐすのではなく\n` +
+          `**根本から整えます。**\n\n` +
+          `施術前に必ず確認すること：\n` +
+          `・なぜ、その状態になっているのか\n` +
+          `・どこに負担が集中しているのか\n\n` +
+          `この2点を踏まえて施術を行います。\n\n` +
+          `${i.approach}`,
+
         direction:
-          `まず、現在の状態を整理します。\n\n**目指すのは"戻りにくい身体"です。**\n\n施術と組み合わせて\n${s.selfcare}も行います。\n\nそれにより\nより安定した状態を目指します。\n\n${d.urgency}`,
+          `まず、現在の状態を整理します。\n\n` +
+          `**目指すのは"戻りにくい身体"です。**\n\n` +
+          `施術と組み合わせて\n` +
+          `${s.selfcare}も行います。\n\n` +
+          `それにより\n` +
+          `より安定した状態を目指します。\n\n` +
+          `${d.urgency}`,
+
         proposal:
-          `**一度しっかり整えることで、日常が変わる可能性があります。**\n\n「気になっているけど、まだ様子を見よう」\nという方ほど、後で長引くケースが多いです。\n\n**気づいた今が、一番早いタイミングです。**\n\nまずは1回、実際に体を診てもらってください。\n「どうすればいいか」が見えてきます。`
+          `**一度しっかり整えることで、日常が変わる可能性があります。**\n\n` +
+          `「気になっているけど、まだ様子を見よう」\n` +
+          `という方ほど、後で長引くケースが多いです。\n\n` +
+          `**気づいた今が、一番早いタイミングです。**\n\n` +
+          `まずは1回、実際に体を診てもらってください。\n` +
+          `「どうすればいいか」が見えてきます。`
       };
     }
 
+    // ============================================================
+    // ↓ 旧データ（削除済み・新ロジックに移行）
+    // ============================================================
+    const diagnosisData = {
+
+      // -------- 肩こり × デスクワーク --------
+      "肩こり_デスクワーク": {
+        type: "巻き肩",
+        match: 93,
+        feature: "長時間のデスクワークにより、肩が内側に丸まった「巻き肩」の状態になっています。胸筋が縮み、背中の筋肉が伸びきることで肩甲骨まわりに慢性的な緊張が生じ、肩こりや猫背につながっています。",
+        risk: [
+          "肩こりが慢性化し、首・頭痛に広がりやすくなる",
+          "猫背が定着し、姿勢が戻りにくくなる",
+          "呼吸が浅くなり、疲れが取れにくくなる",
+          "放置期間が長いほど改善に時間がかかりやすい"
+        ],
+        planName: "巻き肩改善プログラム",
+        planDuration: "初回 60分 ／ 通常 ¥8,800 → 初回 ¥3,980",
+        planDesc: "硬くなった胸筋・小胸筋の筋膜をリリースし、肩甲骨を正しい位置に整えます。デスクワークで崩れた姿勢を根本から改善するコースです。施術後は肩の軽さをすぐに感じていただけることが多いです。",
+        selfcare: [
+          "胸開きストレッチ：壁に手をつき、体を反対方向にゆっくりひねる（左右各30秒）",
+          "肩甲骨はがし：両腕を後ろで組み、肩甲骨を中央に寄せながら10秒キープ×3回",
+          "座り方リセット：骨盤を立てて座り、モニターを目線の高さに合わせる"
+        ],
+        voices: [
+          { icon: "👨", meta: "30代男性・IT系デスクワーク", text: "毎日肩が重く、夕方になると頭痛がしていました。施術後は肩の位置が変わった感覚があり、<span class='voice-card__highlight'>以前より楽な状態が続くようになりました。</span>" },
+          { icon: "👩", meta: "40代女性・事務職", text: "猫背で見た目も気になっていたのですが、施術後に姿勢が変わったと周りに言われるようになり、<span class='voice-card__highlight'>肩の重だるさも以前より感じにくくなりました。</span>" }
+        ]
+      },
+
+      // -------- 首の痛み × スマホ長時間 --------
+      "首の痛み_スマホ長時間": {
+        type: "ストレートネック",
+        match: 91,
+        feature: "スマホの長時間使用により、首が前に突き出た「ストレートネック」になっています。本来のS字カーブが失われ、首・肩・頭痛のトリプル症状が起こりやすく、慢性化しやすいタイプです。",
+        risk: [
+          "首の痛みが肩・頭痛に広がりやすくなる",
+          "頸椎（首の骨）への負担が蓄積されやすい",
+          "めまいや耳鳴りに発展するケースもある",
+          "スマホ使用が続く限り症状が進みやすい"
+        ],
+        planName: "ストレートネック集中ケアコース",
+        planDuration: "初回 60分 ／ 通常 ¥8,800 → 初回 ¥3,980",
+        planDesc: "頚椎の並びを整え、首の深層筋（インナーマッスル）を直接リリースします。スマホ・PC使いの方に特化した施術で、施術後の「首が軽くなる感覚」を体感いただけます。",
+        selfcare: [
+          "あご引き運動：顎を引いて首を後ろにスライド → 5秒キープ×10回（1日3セット）",
+          "首後面ストレッチ：両手を頭の後ろに組み、ゆっくり前に倒す（30秒×2回）",
+          "スマホを目線の高さに：スタンドやクッションで高さを上げてうつむきを防ぐ"
+        ],
+        voices: [
+          { icon: "👩", meta: "30代女性・スマホ使用が多い在宅ワーカー", text: "首の重だるさと頭痛が毎日続いていました。施術を受けて首の動きが楽になり、<span class='voice-card__highlight'>頭痛の頻度が減ってきたと感じています。</span>" },
+          { icon: "👨", meta: "20代男性・学生", text: "スマホを見るたびに首が痛くなっていました。施術後に首が軽くなる感覚があり、<span class='voice-card__highlight'>以前より画面を見ても疲れにくくなった気がします。</span>" }
+        ]
+      },
+
+      // -------- 腰痛 × 運動不足 --------
+      "腰痛_運動不足": {
+        type: "骨盤歪み",
+        match: 89,
+        feature: "運動不足による体幹筋の低下で、骨盤が歪んだ状態になっています。骨盤の傾きが腰椎に慢性的な負担をかけており、放置すると椎間板や神経への影響も懸念されます。",
+        risk: [
+          "腰痛が慢性化し、日常動作でも痛みが出やすくなる",
+          "体幹の低下が続き、腰への負担がさらに増す",
+          "姿勢の崩れが全身に波及しやすい",
+          "疲労が蓄積しやすく、回復に時間がかかる体質になる"
+        ],
+        planName: "腰痛根本リセット施術",
+        planDuration: "初回 60分 ／ 通常 ¥8,800 → 初回 ¥3,980",
+        planDesc: "骨盤の歪みを手技で丁寧に整えたうえで、再発を防ぐための体幹強化アドバイスもお伝えします。腰痛の「また起こる」を繰り返さない身体づくりを目指すコースです。",
+        selfcare: [
+          "ドローイン：仰向けでお腹をへこませたまま10秒呼吸×10回（体幹強化）",
+          "股関節ストレッチ：床に座って両足裏を合わせ、ひざを床に近づける（30秒）",
+          "毎日のウォーキング：15〜20分歩いて骨盤まわりの血流を整える"
+        ],
+        voices: [
+          { icon: "👨", meta: "40代男性・デスクワーク中心", text: "数年悩んでいた腰痛で、朝起き上がるのがつらい日もありました。継続施術とセルフケアで、<span class='voice-card__highlight'>以前より楽に過ごせる日が増えてきました。</span>" },
+          { icon: "👩", meta: "50代女性・主婦", text: "家事をするたびに腰が痛くなっていましたが、骨盤の歪みを整えてもらってから、<span class='voice-card__highlight'>長時間立っていても以前ほど辛くなくなりました。</span>" }
+        ]
+      },
+
+      // -------- 頭痛 × デスクワーク --------
+      "頭痛_デスクワーク": {
+        type: "緊張型頭痛",
+        match: 88,
+        feature: "デスクワークによる首・肩の過緊張が原因の「緊張型頭痛」です。後頭部や側頭部が締め付けられる痛みが特徴で、眼精疲労・精神的ストレスが重なることで慢性化しやすい状態です。",
+        risk: [
+          "頭痛が週に複数回の慢性パターンになりやすい",
+          "集中力・作業効率の低下につながる",
+          "薬が手放せなくなるケースもある",
+          "めまいや睡眠の質の低下に発展することがある"
+        ],
+        planName: "頭痛・肩こり集中リリースコース",
+        planDuration: "初回 60分 ／ 通常 ¥8,800 → 初回 ¥3,980",
+        planDesc: "頭蓋骨まわりの緊張を解放し、首・肩のトリガーポイントに直接アプローチ。頭痛の根本原因となる筋緊張を取り除きます。「頭が軽くなる」感覚を実感いただけるコースです。",
+        selfcare: [
+          "後頭部マッサージ：両手の親指で後頭部の付け根をゆっくり押す（1分間）",
+          "ホットタオルケア：温かいタオルを目・後頭部に当てて眼精疲労を和らげる",
+          "1時間に1回の休憩：画面から目を離し、遠くを見る習慣をつける"
+        ],
+        voices: [
+          { icon: "👩", meta: "30代女性・広告会社勤務", text: "週に3〜4日は頭痛薬を飲んでいました。施術を続けるうちに頭痛の回数が減ってきて、<span class='voice-card__highlight'>薬に頼る日が以前より少なくなりました。</span>" },
+          { icon: "👨", meta: "40代男性・管理職", text: "仕事中の頭の重さで集中できない日が続いていましたが、施術後に<span class='voice-card__highlight'>頭がスッキリする感覚を体験してから、定期的に通うようになりました。</span>" }
+        ]
+      },
+
+      // -------- 肩こり × スマホ長時間 --------
+      "肩こり_スマホ長時間": {
+        type: "スマホ巻き肩",
+        match: 90,
+        feature: "スマホ長時間使用で首が前に出て肩が内側に丸まる「スマホ巻き肩」の状態です。僧帽筋・菱形筋に慢性的な負荷がかかり、肩こりと首のだるさが同時に起こりやすくなっています。",
+        risk: [
+          "肩こりと首の痛みが同時進行で悪化しやすい",
+          "巻き肩が固定化し、自分では戻しにくくなる",
+          "呼吸が浅くなりやすく、疲労感が抜けにくい",
+          "頭痛・眼精疲労に発展するケースが多い"
+        ],
+        planName: "スマホ姿勢リセットコース",
+        planDuration: "初回 60分 ／ 通常 ¥8,800 → 初回 ¥3,980",
+        planDesc: "前傾した姿勢を整え、縮んだ胸筋・頸部筋の筋膜を丁寧にリリース。スマホを日常的に使う方の「肩こりと首のだるさの連鎖」を断ち切るコースです。",
+        selfcare: [
+          "ドアフレームストレッチ：ドア枠に手を当てて胸を開く（左右各20秒×3回）",
+          "肩回し：前5回・後ろ5回を1日数セット行い、肩甲骨を動かす",
+          "スマホは目線の高さで操作：うつむかないよう両手持ちで高さを上げる"
+        ],
+        voices: [
+          { icon: "👩", meta: "20代女性・SNS運用担当", text: "スマホとPCで一日中作業していたら、常に肩が固まっている状態に。施術後に<span class='voice-card__highlight'>肩の位置が変わった感覚があり、以前より楽になりました。</span>" },
+          { icon: "👨", meta: "30代男性・フリーランス", text: "肩こりが当たり前だと思っていましたが、施術を受けて初めて「本来の楽な状態」を体感し、<span class='voice-card__highlight'>定期的なケアの大切さに気づきました。</span>" }
+        ]
+      },
+
+      // -------- 腰痛 × 立ち仕事 --------
+      "腰痛_立ち仕事": {
+        type: "腰椎疲労",
+        match: 87,
+        feature: "長時間の立ち仕事による腰椎への過負荷が原因です。腸腰筋が縮んで骨盤が前傾（反り腰）になりやすく、腰の筋肉が常に緊張した状態で慢性痛に発展しやすいタイプです。",
+        risk: [
+          "反り腰が定着し、腰椎の負担が慢性化しやすい",
+          "股関節・膝への悪影響が出てくることがある",
+          "立つだけで疲れる・痛みが出やすい状態になる",
+          "仕事中の集中力・パフォーマンス低下につながる"
+        ],
+        planName: "立ち仕事腰痛ケアコース",
+        planDuration: "初回 60分 ／ 通常 ¥8,800 → 初回 ¥3,980",
+        planDesc: "奥深くにある腸腰筋を直接緩め、骨盤を中立位に整えます。仕事終わりに腰が痛くなる方に特化した施術で、次の日の体の軽さを感じていただけます。",
+        selfcare: [
+          "腸腰筋ストレッチ：片ひざをつき、腰を前にゆっくり押し出す（左右各30秒）",
+          "姿勢リセット習慣：1時間ごとに壁に背をつけて「まっすぐ立ち」を意識",
+          "インソール見直し：クッション性の高いインソールで足裏への衝撃を軽減"
+        ],
+        voices: [
+          { icon: "👩", meta: "40代女性・飲食店スタッフ", text: "長時間立っていると腰が悲鳴を上げていました。施術を受けてから、<span class='voice-card__highlight'>仕事終わりの腰の重さが以前より楽になってきました。</span>" },
+          { icon: "👨", meta: "50代男性・工場勤務", text: "腰痛で仕事が辛かったのですが、骨盤を整えてもらってから<span class='voice-card__highlight'>同じ作業でも体への負担が減った気がします。</span>" }
+        ]
+      },
+
+      // -------- デフォルト（マッチしない場合） --------
+      "default": {
+        type: "複合疲労",
+        match: 82,
+        feature: "複数の不調が重なった「複合疲労タイプ」です。生活習慣・姿勢・ストレスなど様々な要因が絡み合っているため、まず全身の状態を丁寧に確認することが大切です。",
+        risk: [
+          "複数の症状が同時進行で悪化しやすい",
+          "疲れが溜まる一方で、回復サイクルが崩れやすい",
+          "放置すると特定の部位に集中して痛みが出ることがある",
+          "身体の歪みが固定化しやすくなる"
+        ],
+        planName: "全身調整・根本ケアコース",
+        planDuration: "初回 60分 ／ 通常 ¥8,800 → 初回 ¥3,980",
+        planDesc: "全身の歪みや筋肉の状態をチェックし、最も効果的な施術を組み合わせるオーダーメイドコースです。まずは丁寧なカウンセリングから始めます。",
+        selfcare: [
+          "全身ストレッチ：朝晩5分、全身を大きく伸ばす習慣をつける",
+          "入浴習慣：シャワーだけでなく湯船で全身を温めて血流を改善",
+          "水分補給：1日1.5L以上の水を飲んで筋肉・関節の柔軟性を保つ"
+        ],
+        voices: [
+          { icon: "👩", meta: "40代女性・主婦", text: "体のあちこちが不調で、どこから手をつければいいか分からずにいました。丁寧に話を聞いてもらえて、<span class='voice-card__highlight'>全身を整えてもらってから体が軽くなりました。</span>" },
+          { icon: "👨", meta: "50代男性・自営業", text: "疲れが抜けない毎日でしたが、施術後に<span class='voice-card__highlight'>睡眠の質が改善してきた感覚があり、身体が楽になってきました。</span>" }
+        ]
+      }
+    };
+
+    // FAQ アコーディオン（クリックで開閉）
     function toggleFaq(questionEl) {
       const item = questionEl.parentElement;
       const isOpen = item.classList.contains('open');
+      // 他を全て閉じてから、クリックしたものを開く
       document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
       if (!isOpen) item.classList.add('open');
     }
 
+    // ステップ移動
     function goToStep(nextStep) {
       const cur = nextStep - 1;
+
       if (cur === 1) {
         const sel = document.querySelectorAll('input[name="symptom"]:checked');
         if (sel.length === 0) { document.getElementById('error-step-1').style.display = 'block'; return; }
@@ -2111,14 +2738,169 @@
         if (!sel) { document.getElementById('error-step-3').style.display = 'block'; return; }
         document.getElementById('error-step-3').style.display = 'none';
       }
+
       document.getElementById(`form-step-${cur}`).style.display = 'none';
-      document.getElementById(`form-step-${nextStep}`).style.display = 'block';
+      const _nextStepEl = document.getElementById(`form-step-${nextStep}`);
+      _nextStepEl.style.display = 'block';
+      _nextStepEl.classList.add('visible'); // モバイルでも確実に表示
       updateStepIndicator(nextStep);
       document.getElementById('form-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
+    // ステップインジケーター更新
     function updateStepIndicator(active) {
       for (let i = 1; i <= 4; i++) {
         const n = document.getElementById(`step-num-${i}`);
         const l = document.getElementById(`step-label-${i}`);
         n.classList.remove('active', 'done');
+        l.classList.remove('active');
+        if (i < active) { n.classList.add('done'); n.textContent = '✓'; }
+        else if (i === active) { n.classList.add('active'); l.classList.add('active'); }
+        if (i <= 3) {
+          const line = document.getElementById(`step-line-${i}`);
+          i < active ? line.classList.add('done') : line.classList.remove('done');
+        }
+      }
+    }
+
+    // 診断実行
+    function runDiagnosis() {
+      const lifestyleEls = document.querySelectorAll('input[name="lifestyle"]:checked');
+      if (lifestyleEls.length === 0) { document.getElementById('error-step-4').style.display = 'block'; return; }
+      document.getElementById('error-step-4').style.display = 'none';
+
+      const symptomEls = document.querySelectorAll('input[name="symptom"]:checked');
+      const symptoms   = Array.from(symptomEls).map(el => el.value);
+      const duration   = document.querySelector('input[name="duration"]:checked').value;
+      const intensity  = document.querySelector('input[name="intensity"]:checked').value;
+      const lifestyles = Array.from(lifestyleEls).map(el => el.value);
+      const lifestyle  = lifestyles[0]; // 主ライフスタイル（hook用）
+
+      // ローディング開始
+      document.getElementById('form-step-4').style.display = 'none';
+      document.getElementById('loading-section').classList.add('active');
+
+      // 2秒のローディング演出後に結果表示
+      setTimeout(function() {
+        document.getElementById('loading-section').classList.remove('active');
+
+        // 診断文章を生成
+        const r = buildResult(symptoms, duration, intensity, lifestyles);
+
+        // バッジ更新
+        document.getElementById('result-symptom-badge').textContent   = r.symptomLabel;
+        document.getElementById('result-duration-badge').textContent  = r.durationLabel;
+        document.getElementById('result-intensity-badge').textContent = r.intensityLabel + ' / ' + r.lifestyleLabel;
+
+        // タイプ名
+        document.getElementById('result-type').textContent = r.typeName;
+
+        // 自分ごと化フック
+        document.getElementById('result-hook').textContent = r.hook;
+
+        // 放置リスクリスト
+        document.getElementById('result-risk-list').innerHTML =
+          r.risks.map(function(text) {
+            return '<li><span class="risk-icon">❌</span>' + text + '</li>';
+          }).join('');
+
+        // 4ブロックの文章をライン種別に応じてHTMLに変換
+        function setParaText(id, text) {
+          var el = document.getElementById(id);
+          el.innerHTML = text.split('\n').map(function(line) {
+            // 空行 → スペーサー
+            if (line === '') return '<span class="para-space"></span>';
+            // **太字強調** を変換
+            line = line.replace(/\*\*(.+?)\*\*/g, '<strong class="para-strong">$1</strong>');
+            // 【ヘッダー】
+            if (/^【.+】$/.test(line.trim())) {
+              return '<span class="para-header">' + line + '</span>';
+            }
+            // 箇条書き ・
+            if (line.startsWith('・')) {
+              return '<span class="para-bullet">' + line + '</span>';
+            }
+            // 通常行
+            return '<span class="para-line">' + line + '</span>';
+          }).join('');
+        }
+        setParaText('result-diagnosis',  r.diagnosis);
+        setParaText('result-approach',   r.approach);
+        setParaText('result-direction',  r.direction);
+        setParaText('result-proposal',   r.proposal);
+
+        // 結果表示
+        document.getElementById('result-section').classList.add('active');
+
+        // スクロール＆結果内の全 fade-in を確実に表示
+        setTimeout(function() {
+          document.getElementById('result-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // result-section 内の fade-in をすべて表示
+          document.querySelectorAll('#result-section .fade-in').forEach(function(el) {
+            el.classList.add('visible');
+          });
+          // 結果の本文（para系）も確実にvisible
+          document.querySelectorAll('.result-para, .result-hook, .result-risk-list').forEach(function(el) {
+            el.style.opacity = '1';
+            el.style.visibility = 'visible';
+          });
+        }, 100);
+
+        // 固定CTAバーを3秒後に浮上
+        setTimeout(function() {
+          document.getElementById('sticky-bar').classList.add('show');
+        }, 3000);
+
+        updateStepIndicator(4);
+
+      }, 2000);
+    }
+
+    // 診断リセット
+    function resetDiagnosis() {
+      document.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(el => el.checked = false);
+      document.querySelectorAll('.form-error').forEach(el => el.style.display = 'none');
+      document.getElementById('result-section').classList.remove('active');
+      const _s1 = document.getElementById('form-step-1');
+      _s1.style.display = 'block';
+      _s1.classList.add('visible'); // リセット後も確実に表示
+      document.getElementById('form-step-2').style.display = 'none';
+      document.getElementById('form-step-3').style.display = 'none';
+      document.getElementById('form-step-4').style.display = 'none';
+      document.getElementById('sticky-bar').classList.remove('show');
+      updateStepIndicator(1);
+      document.getElementById('form-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // ============================================================
+    // スクロールフェードイン（モバイル対応強化版）
+    // ============================================================
+
+    // threshold:0 = 1pxでも見えたら発火（モバイルで取りこぼさない）
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ── フォールバック：observer が拾い漏らした要素をスクロール時に救済 ──
+    function checkFadeIns() {
+      document.querySelectorAll('.fade-in:not(.visible)').forEach(function(el) {
+        // display:none の要素は除外
+        if (el.offsetParent === null && !el.closest('.result-section.active')) return;
+        var r = el.getBoundingClientRect();
+        // 画面内 or 画面下 100px 以内なら表示
+        if (r.top < window.innerHeight + 100 && r.bottom > 0) {
+          el.classList.add('visible');
+        }
+      });
+    }
+    // スクロールのたびに確認
+    window.addEventListener('scroll', checkFadeIns, { passive: true });
+    // ページ読み込み直後（200ms後）に既に見えている要素を処理
+    setTimeout(checkFadeIns, 200);
+    // 念のため 1 秒後にも再チェック
+    setTimeout(checkFadeIns, 1000);
+
+  </script>
+</body>
+</html>
