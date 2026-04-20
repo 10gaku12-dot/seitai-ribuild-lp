@@ -220,9 +220,44 @@
     }
     /* スマホでLINEボタンのテキストを短縮 */
     .header__line-text-short { display: none; }
-    @media (max-width: 420px) {
+
+    /* ── ヘッダー レスポンシブ ── */
+    /*
+      601px以上  : ボタン5つ全表示
+      ≤600px     : 公式HP・Instagram非表示 → 診断・WEB予約・LINE の3ボタン
+      ≤480px     : LINEと予約のテキストを短縮、さらにパディング縮小
+      ≤360px     : WEB予約も非表示 → 診断・LINE の2ボタンのみ
+    */
+    @media (max-width: 600px) {
+      .header__inner {
+        height: auto;
+        min-height: 52px;
+        padding: 6px 14px;
+      }
+      .header__logo { font-size: 14px; }
+      .header__logo span { display: none; }
+      .header__nav { gap: 6px; }
+      .header__btn-hp,
+      .header__btn-insta { display: none !important; }
+      .header__cta {
+        font-size: 12px !important;
+        padding: 8px 14px !important;
+      }
+    }
+    @media (max-width: 480px) {
+      .header__inner { padding: 6px 12px; }
+      .header__nav { gap: 5px; }
       .header__line-text-full { display: none; }
       .header__line-text-short { display: inline; }
+      .header__cta {
+        font-size: 11px !important;
+        padding: 7px 11px !important;
+      }
+    }
+    @media (max-width: 360px) {
+      .header__inner { padding: 6px 10px; }
+      .header__btn-reserve { display: none !important; }
+      .header__logo { font-size: 13px; }
     }
 
     /* Instagramアイコンボタン */
@@ -1581,19 +1616,18 @@
         <span>SEITAI REBUILD</span>
       </div>
       <div class="header__nav">
-        <!-- 公式HPボタン -->
-        <a href="https://ribuild.jp/" class="btn btn--outline header__cta" target="_blank" rel="noopener">🏠 公式HP</a>
-        <!-- Instagramボタン -->
-        <a href="https://www.instagram.com/terasawa.pt?igsh=Y3lwcmtrOW12OHEy" class="btn btn--insta header__cta" target="_blank" rel="noopener">📸 Instagram</a>
+        <!-- 公式HPボタン（480px以下で非表示） -->
+        <a href="https://ribuild.jp/" class="btn btn--outline header__cta header__btn-hp" target="_blank" rel="noopener">🏠 公式HP</a>
+        <!-- Instagramボタン（480px以下で非表示） -->
+        <a href="https://www.instagram.com/terasawa.pt?igsh=Y3lwcmtrOW12OHEy" class="btn btn--insta header__cta header__btn-insta" target="_blank" rel="noopener">📸 Instagram</a>
         <!-- 診断ボタン -->
         <a href="#form-section" class="btn btn--primary header__cta">🔍 無料診断</a>
-        <!-- WEB予約ボタン -->
-        <a href="https://ribuild.jp/contact/" class="btn btn--green header__cta" target="_blank" rel="noopener">
+        <!-- WEB予約ボタン（360px以下で非表示） -->
+        <a href="https://ribuild.jp/contact/" class="btn btn--green header__cta header__btn-reserve" target="_blank" rel="noopener">
           <span class="header__line-text-full">📅 WEB予約</span>
           <span class="header__line-text-short">📅 予約</span>
         </a>
-        <!-- LINE相談ボタン（迷っている人向け）-->
-        <!-- ▼ LINEのURLをここに設定してください ▼ -->
+        <!-- LINE相談ボタン -->
         <a href="https://line.me/ti/p/jXMVnNwZJJ" class="btn btn--line header__cta" target="_blank" rel="noopener">
           <span class="header__line-text-full">💬 LINE相談</span>
           <span class="header__line-text-short">💬 LINE</span>
@@ -1994,6 +2028,251 @@
     </div>
   </section>
 
+
+  <!-- ============================================================
+       ABOUT セクション（施術の流れ）
+       ============================================================ -->
+  <section class="section about-section" id="about-section">
+    <div class="container">
+      <div class="fade-in" style="text-align:center;">
+        <span class="section-label">HOW IT WORKS</span>
+        <h2 class="section-title">整体りびるどの<br />施術の流れ</h2>
+        <p class="section-sub">
+          初めての方も安心。<br />
+          丁寧なカウンセリングから始まります。
+        </p>
+      </div>
+
+      <div class="about-flow fade-in">
+        <div class="about-flow__item">
+          <div class="about-flow__icon">📋</div>
+          <div class="about-flow__label">① カウンセリング</div>
+          <div class="about-flow__desc">現在の状態・生活習慣・お悩みを丁寧にヒアリング</div>
+        </div>
+        <div class="about-flow__arrow">→</div>
+        <div class="about-flow__item">
+          <div class="about-flow__icon">🔍</div>
+          <div class="about-flow__label">② 検査・分析</div>
+          <div class="about-flow__desc">姿勢・筋肉・骨格バランスを細かく確認</div>
+        </div>
+        <div class="about-flow__arrow">→</div>
+        <div class="about-flow__item">
+          <div class="about-flow__icon">🌿</div>
+          <div class="about-flow__label">③ 施術</div>
+          <div class="about-flow__desc">根本原因に対してオーダーメイドで整えます</div>
+        </div>
+        <div class="about-flow__arrow">→</div>
+        <div class="about-flow__item">
+          <div class="about-flow__icon">📝</div>
+          <div class="about-flow__label">④ セルフケア指導</div>
+          <div class="about-flow__desc">自宅でできるケアや日常の注意点をお伝え</div>
+        </div>
+      </div>
+
+      <div class="about-note fade-in">
+        💡 初回は状態の確認と今後の方向性のご説明も含め、60分程度を目安にお時間をいただいています。
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       期待できる変化セクション
+       ============================================================ -->
+  <section class="section change-section" id="change-section">
+    <div class="container">
+      <div class="fade-in" style="text-align:center;">
+        <span class="section-label">BEFORE → AFTER</span>
+        <h2 class="section-title">施術を通じて<br />こんな変化を目指します</h2>
+        <p class="section-sub">「戻らない体」をつくるために、根本から整えます。</p>
+      </div>
+
+      <div class="change-cards">
+
+        <div class="change-card fade-in">
+          <div class="change-card__icon">🌅</div>
+          <div class="change-card__body">
+            <div class="change-card__before">朝起きると体がだるく、やる気が出ない…</div>
+            <div class="change-card__after">
+              <span class="change-card__arrow">改善へ</span>
+              朝スッキリと起き上がれる体へ
+            </div>
+          </div>
+        </div>
+
+        <div class="change-card fade-in">
+          <div class="change-card__icon">💻</div>
+          <div class="change-card__body">
+            <div class="change-card__before">仕事中に肩がパンパン、集中できない…</div>
+            <div class="change-card__after">
+              <span class="change-card__arrow">改善へ</span>
+              仕事中も肩が楽で、集中が続くようになる
+            </div>
+          </div>
+        </div>
+
+        <div class="change-card fade-in">
+          <div class="change-card__icon">💊</div>
+          <div class="change-card__body">
+            <div class="change-card__before">頭痛・肩こりで毎日薬に頼っている…</div>
+            <div class="change-card__after">
+              <span class="change-card__arrow">改善へ</span>
+              薬に頼らなくていい日が増えてくる
+            </div>
+          </div>
+        </div>
+
+        <div class="change-card fade-in">
+          <div class="change-card__icon">🛋️</div>
+          <div class="change-card__body">
+            <div class="change-card__before">休日もぐったり。何もする気になれない…</div>
+            <div class="change-card__after">
+              <span class="change-card__arrow">改善へ</span>
+              休日に体が動けるようになり、生活が変わる
+            </div>
+          </div>
+        </div>
+
+        <div class="change-card fade-in">
+          <div class="change-card__icon">🔁</div>
+          <div class="change-card__body">
+            <div class="change-card__before">マッサージに通い続けても、また戻ってしまう…</div>
+            <div class="change-card__after">
+              <span class="change-card__arrow">改善へ</span>
+              「また戻る」のサイクルから抜け出せる体へ
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       差別化セクション（他院との違い）
+       ============================================================ -->
+  <section class="section diff-section" id="diff-section">
+    <div class="container">
+      <div class="fade-in" style="text-align:center;">
+        <span class="section-label">DIFFERENCE</span>
+        <h2 class="section-title">一般的な施術院との違い</h2>
+        <p class="section-sub">
+          「その場しのぎ」ではなく、<br />
+          「戻りにくい体」をつくることを目指しています。
+        </p>
+      </div>
+
+      <div class="fade-in">
+        <table class="diff-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="th-normal">一般的な<br />マッサージ店</th>
+              <th class="th-this">整体りびるど<span class="diff-badge">当院</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>アプローチ</td>
+              <td class="td-normal">その場をほぐすだけ</td>
+              <td class="td-this">根本原因から整える</td>
+            </tr>
+            <tr>
+              <td>カウンセリング</td>
+              <td class="td-normal">簡単な問診のみ</td>
+              <td class="td-this">丁寧なヒアリングで<br />原因を特定</td>
+            </tr>
+            <tr>
+              <td>施術内容</td>
+              <td class="td-normal">コース固定</td>
+              <td class="td-this">あなた専用の<br />オーダーメイド施術</td>
+            </tr>
+            <tr>
+              <td>再発対策</td>
+              <td class="td-normal">施術のみ</td>
+              <td class="td-this">セルフケア指導付き</td>
+            </tr>
+            <tr>
+              <td>施術者</td>
+              <td class="td-normal">スタッフが担当</td>
+              <td class="td-this">理学療法士が直接担当</td>
+            </tr>
+            <tr>
+              <td>来院前の相談</td>
+              <td class="td-normal">予約のみ</td>
+              <td class="td-this">LINEで気軽に相談OK</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       お客様の声（改善事例）
+       ============================================================ -->
+  <section class="section" id="voices-section" style="background:var(--color-bg-section);">
+    <div class="container">
+      <div class="fade-in" style="text-align:center;">
+        <span class="section-label">VOICES</span>
+        <h2 class="section-title">ご来院された方の声</h2>
+        <p class="section-sub">
+          「施術を受けてよかった」という声を<br />
+          直接いただいています。
+        </p>
+      </div>
+
+      <div class="voice-cards">
+
+        <div class="voice-card fade-in">
+          <div class="voice-card__avatar">👩</div>
+          <div class="voice-card__body">
+            <div class="voice-card__meta">30代女性・デスクワーク中心</div>
+            <p class="voice-card__text">
+              毎日肩が重く、夕方になると頭痛がひどかったです。施術後に肩の位置が変わった感覚があり、
+              <span class="voice-card__highlight">以前より楽な状態が続くようになりました。</span>
+              自分の体のクセを丁寧に説明してもらえたのも安心でした。
+            </p>
+          </div>
+        </div>
+
+        <div class="voice-card fade-in">
+          <div class="voice-card__avatar">👨</div>
+          <div class="voice-card__body">
+            <div class="voice-card__meta">40代男性・立ち仕事（飲食業）</div>
+            <p class="voice-card__text">
+              仕事終わりに腰が限界で、帰ってくるとぐったりでした。骨盤を整えてもらってから、
+              <span class="voice-card__highlight">仕事終わりの腰の重さが明らかに変わりました。</span>
+              セルフケアも教えてもらって、自分でもケアできるようになりました。
+            </p>
+          </div>
+        </div>
+
+        <div class="voice-card fade-in">
+          <div class="voice-card__avatar">👩</div>
+          <div class="voice-card__body">
+            <div class="voice-card__meta">30代女性・育児中</div>
+            <p class="voice-card__text">
+              抱っこや中腰作業で腰と肩が限界でした。LINEで相談してからすぐに予約でき、
+              <span class="voice-card__highlight">施術後に体が軽くなって、子育てが少し楽になりました。</span>
+              来院前に相談できたのがよかったです。
+            </p>
+          </div>
+        </div>
+
+        <div class="voice-card fade-in">
+          <div class="voice-card__avatar">👨</div>
+          <div class="voice-card__body">
+            <div class="voice-card__meta">50代男性・自営業</div>
+            <p class="voice-card__text">
+              数年来の腰痛で、何箇所か通いましたがどこも「その場限り」でした。ここに来て初めて
+              <span class="voice-card__highlight">「なぜ痛いのか」を理解でき、根本から変わっていく感覚がありました。</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- ============================================================
        FAQ セクション（CTAの手前に配置）
