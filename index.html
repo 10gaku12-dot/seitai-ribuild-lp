@@ -17,8 +17,8 @@
        ここを変えるだけでサイト全体の色味を変更できます
        ============================================================ */
     :root {
-      --color-primary:      #2A7F6F;
-      --color-primary-dark: #1f6358;
+      --color-primary:      #3A8CC4;
+      --color-primary-dark: #2870A8;
       --color-accent:       #E8A23C;
       --color-accent-dark:  #c9882a;
       --color-line:         #06C755;   /* LINEグリーン */
@@ -26,12 +26,12 @@
       --color-risk:         #FFF3E0;   /* 放置リスク背景 */
       --color-risk-border:  #FFCC80;
       --color-risk-text:    #E65100;
-      --color-bg:           #FAFAF8;
-      --color-bg-section:   #F2F4F1;
+      --color-bg:           #F3F8FD;
+      --color-bg-section:   #E6F1FA;
       --color-text:         #2C2C2C;
-      --color-text-light:   #6B7280;
+      --color-text-light:   #6A8FA8;
       --color-white:        #FFFFFF;
-      --color-border:       #E0E4DF;
+      --color-border:       #C2DCEE;
       --radius:             12px;
       --shadow:             0 4px 20px rgba(0,0,0,0.08);
       --shadow-hover:       0 8px 30px rgba(0,0,0,0.14);
@@ -70,7 +70,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--color-primary);
-      background: rgba(42,127,111,0.10);
+      background: rgba(58,140,196,0.10);
       border-radius: 20px;
       padding: 4px 14px;
       margin-bottom: 12px;
@@ -119,17 +119,17 @@
       transform: translateY(-2px);
     }
 
-    /* グリーン：フォームの「次へ」などに使用 */
+    /* ブルー：フォームの「次へ」などに使用 */
     .btn--green {
-      background: var(--color-primary);
+      background: linear-gradient(135deg, #3A8CC4, #5AAED8);
       color: var(--color-white);
       font-size: 16px;
       padding: 16px 36px;
-      box-shadow: 0 4px 16px rgba(42,127,111,0.35);
+      box-shadow: 0 4px 16px rgba(58,140,196,0.40);
     }
     .btn--green:hover {
-      background: var(--color-primary-dark);
-      box-shadow: 0 6px 22px rgba(42,127,111,0.45);
+      background: linear-gradient(135deg, #2870A8, #3A8CC4);
+      box-shadow: 0 6px 22px rgba(58,140,196,0.55);
       transform: translateY(-2px);
     }
 
@@ -216,7 +216,7 @@
        ① ヒーロー（ファーストビュー）
        ============================================================ */
     .hero {
-      background: linear-gradient(160deg, #1a6657 0%, #2A7F6F 55%, #3a9d89 100%);
+      background: linear-gradient(145deg, #0F2D55 0%, #1A5C9A 35%, #3A8CC4 65%, #6BBFE0 100%);
       color: var(--color-white);
       padding: 64px 20px 64px;
       text-align: center;
@@ -226,18 +226,18 @@
     .hero::before {
       content: '';
       position: absolute;
-      top: -80px; right: -80px;
-      width: 300px; height: 300px;
+      top: -100px; right: -60px;
+      width: 380px; height: 380px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.05);
+      background: radial-gradient(circle, rgba(107,191,224,0.18) 0%, transparent 70%);
     }
     .hero::after {
       content: '';
       position: absolute;
-      bottom: -60px; left: -60px;
-      width: 240px; height: 240px;
+      bottom: -80px; left: -80px;
+      width: 300px; height: 300px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.05);
+      background: radial-gradient(circle, rgba(255,255,255,0.10) 0%, transparent 70%);
     }
     .hero__inner { position: relative; z-index: 1; }
     .hero__badge {
@@ -343,7 +343,7 @@
       font-size: 14px; font-weight: 500;
       user-select: none;
     }
-    .option-label:hover { border-color: var(--color-primary); background: rgba(42,127,111,0.04); }
+    .option-label:hover { border-color: var(--color-primary); background: rgba(58,140,196,0.04); }
     .option-label input { display: none; }
     .option-label .check-box {
       width: 20px; height: 20px;
@@ -361,7 +361,7 @@
     }
     .option-label:has(input:checked) {
       border-color: var(--color-primary);
-      background: rgba(42,127,111,0.07);
+      background: rgba(58,140,196,0.07);
     }
     .option-label.checkbox .check-box { border-radius: 5px; }
     .option-label .emoji { font-size: 20px; }
@@ -416,9 +416,9 @@
 
     /* 結果ヘッダー */
     .result-header {
-      background: linear-gradient(135deg, #1a6657 0%, #2A7F6F 60%, #3a9d89 100%);
+      background: linear-gradient(135deg, #0F2D55 0%, #1A5C9A 45%, #3A8CC4 75%, #6BBFE0 100%);
       color: var(--color-white);
-      padding: 36px 28px 32px;
+      padding: 44px 28px 38px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -432,26 +432,32 @@
       background: rgba(255,255,255,0.06);
     }
     .result-header__label {
-      font-size: 11px;
-      letter-spacing: 0.12em;
+      font-size: 12px;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      opacity: 0.8;
-      margin-bottom: 10px;
+      opacity: 0.85;
+      margin-bottom: 14px;
+      background: rgba(255,255,255,0.15);
+      display: inline-block;
+      padding: 4px 16px;
+      border-radius: 20px;
     }
     .result-header__type-intro {
-      font-size: 13px;
-      opacity: 0.75;
-      margin-top: 20px;
-      margin-bottom: 6px;
-      letter-spacing: 0.06em;
+      font-size: 15px;
+      opacity: 0.85;
+      margin-top: 22px;
+      margin-bottom: 8px;
+      letter-spacing: 0.08em;
+      font-weight: 700;
     }
     .result-header__type {
-      font-size: clamp(22px, 6vw, 32px);
+      font-size: clamp(26px, 7vw, 38px);
       font-weight: 900;
-      line-height: 1.35;
-      margin-bottom: 4px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      line-height: 1.3;
+      margin-bottom: 8px;
+      text-shadow: 0 3px 14px rgba(0,0,0,0.25);
       color: #FFD98A;
+      letter-spacing: 0.02em;
     }
     .result-header__type span { color: #FFD98A; }
     .result-header__badges {
@@ -477,33 +483,35 @@
     .result-block__title {
       display: flex;
       align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: 700;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 900;
       color: var(--color-primary);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid rgba(58,140,196,0.15);
     }
-    .result-block__title .icon { font-size: 18px; }
-    .result-block p { font-size: 14px; line-height: 1.8; }
+    .result-block__title .icon { font-size: 22px; }
+    .result-block p { font-size: 16px; line-height: 1.9; }
     /* 自分ごと化フック */
     .result-hook {
-      background: linear-gradient(135deg, #FFF8EC, #FFF3DC);
-      border-left: 4px solid var(--color-accent);
-      border-radius: 0 10px 10px 0;
-      padding: 16px 20px;
-      font-size: clamp(14px, 3.5vw, 16px);
-      font-weight: 800;
-      color: #7A4F00;
-      line-height: 1.6;
+      background: linear-gradient(135deg, #FFF8E1, #FFF3CD);
+      border-left: 6px solid #F59E0B;
+      border-radius: 0 14px 14px 0;
+      padding: 20px 24px;
+      font-size: clamp(16px, 4.2vw, 20px);
+      font-weight: 900;
+      color: #5C3000;
+      line-height: 1.65;
       letter-spacing: 0.02em;
-      margin: 0 0 0 0;
+      box-shadow: 0 4px 16px rgba(245,158,11,0.18);
     }
     .result-hook::before {
       content: '⚡ ';
-      font-size: 1em;
+      font-size: 1.1em;
     }
     /* 4ブロック段落テキスト — スマホ最適化 */
-    .result-para { font-size: 15px; line-height: 1.85; color: var(--color-text); }
+    .result-para { font-size: 16px; line-height: 1.9; color: var(--color-text); }
 
     /* 通常行 */
     .para-line {
@@ -522,19 +530,78 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       color: var(--color-primary);
-      background: rgba(42,127,111,0.08);
+      background: rgba(58,140,196,0.08);
       border-radius: 6px;
       padding: 4px 10px;
       margin-bottom: 10px;
     }
+    /* ポワンポワン浮遊アニメーション */
+    @keyframes diagFloat {
+      0%   { transform: translateY(0px);   box-shadow: 0 5px 20px rgba(58,140,196,0.40); }
+      50%  { transform: translateY(-6px);  box-shadow: 0 12px 32px rgba(58,140,196,0.55); }
+      100% { transform: translateY(0px);   box-shadow: 0 5px 20px rgba(58,140,196,0.40); }
+    }
+    /* 背景グラデーションのゆらぎ */
+    @keyframes diagGlow {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    /* 内側の光の粒 */
+    @keyframes diagShine {
+      0%   { opacity: 0.06; transform: scale(1) translate(0,0); }
+      50%  { opacity: 0.14; transform: scale(1.3) translate(-6px, 4px); }
+      100% { opacity: 0.06; transform: scale(1) translate(0,0); }
+    }
+
+    /* 診断ヘッドライン（原因の一文） */
+    .diagnosis-headline {
+      display: block;
+      font-size: clamp(19px, 5.2vw, 25px);
+      font-weight: 900;
+      color: #fff;
+      background: linear-gradient(135deg, #1A5C9A 0%, #3A8CC4 40%, #5AAED8 70%, #3A8CC4 100%);
+      background-size: 250% 250%;
+      border-radius: 14px;
+      padding: 22px 24px;
+      line-height: 1.55;
+      letter-spacing: 0.03em;
+      box-shadow: 0 5px 20px rgba(58,140,196,0.40);
+      margin-bottom: 4px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation:
+        diagFloat 3s ease-in-out infinite,
+        diagGlow  5s ease-in-out infinite;
+    }
+    .diagnosis-headline::before {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 130px; height: 130px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.10);
+      animation: diagShine 3.5s ease-in-out infinite;
+    }
+    .diagnosis-headline::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -20px;
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+      animation: diagShine 4.2s ease-in-out infinite reverse;
+    }
+
     /* **太字強調** */
     .para-strong {
       display: inline;
       font-weight: 800;
       color: var(--color-primary-dark);
-      background: rgba(42,127,111,0.08);
+      background: rgba(58,140,196,0.10);
       border-radius: 4px;
-      padding: 1px 4px;
+      padding: 1px 5px;
     }
     /* 箇条書き行 */
     .para-bullet {
@@ -546,8 +613,8 @@
     }
     /* ご提案ブロックは強調 */
     .result-block--proposal {
-      background: linear-gradient(135deg, rgba(42,127,111,0.08), rgba(42,127,111,0.04));
-      border: 1.5px solid rgba(42,127,111,0.25);
+      background: linear-gradient(135deg, rgba(58,140,196,0.08), rgba(58,140,196,0.04));
+      border: 1.5px solid rgba(58,140,196,0.25);
       border-radius: 10px;
       padding: 20px 18px;
     }
@@ -555,73 +622,145 @@
       font-size: 15px;
     }
     /* 各ブロックの余白を広げる */
-    .result-block { margin-bottom: 8px; }
-    .result-body { padding: 24px 22px 28px; }
-    .result-divider { margin: 20px 0; }
+    .result-block { margin-bottom: 10px; }
+    .result-body { padding: 28px 24px 32px; }
+    .result-divider { margin: 22px 0; }
     @media (max-width: 480px) {
       .result-body { padding: 18px 16px 24px; }
-      .result-para { font-size: 14px; }
+      .result-para { font-size: 15px; }
     }
-    /* 放置リスクリスト */
+
+    /* ブロックタイトルを大きく */
+    .result-block__title {
+      font-size: 16px !important;
+    }
+    .result-block__title .icon { font-size: 20px !important; }
+
+    /* ━━━ 放置リスク専用 強化スタイル ━━━ */
+    .result-block--risk { margin-bottom: 10px; }
+
+    /* 警告バナー */
+    .risk-warning-banner {
+      background: linear-gradient(135deg, #B71C1C 0%, #C62828 50%, #E53935 100%);
+      color: #fff;
+      text-align: center;
+      padding: 14px 20px;
+      border-radius: 12px 12px 0 0;
+      font-size: clamp(15px, 4vw, 18px);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      line-height: 1.5;
+      box-shadow: 0 4px 14px rgba(183,28,28,0.30);
+    }
+    .risk-warning-banner .warn-sub {
+      display: block;
+      font-size: clamp(11px, 2.8vw, 13px);
+      font-weight: 500;
+      opacity: 0.88;
+      margin-top: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    /* リスクリスト */
     .result-risk-list {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 10px;
-      background: linear-gradient(135deg, #FFF5F5, #FFF0F0);
-      border: 1.5px solid #FFCDD2;
-      border-radius: 10px;
-      padding: 16px 18px;
+      background: linear-gradient(180deg, #FFF3F3 0%, #FFF0F0 100%);
+      border: 2px solid #EF9A9A;
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      padding: 18px 16px 20px;
     }
     .result-risk-list li {
       display: flex;
       align-items: flex-start;
-      gap: 8px;
-      font-size: 14px;
-      line-height: 1.6;
-      color: #C62828;
-      font-weight: 500;
+      gap: 10px;
+      font-size: clamp(14px, 3.6vw, 16px);
+      line-height: 1.65;
+      color: #B71C1C;
+      font-weight: 700;
+      background: rgba(255,255,255,0.75);
+      border-radius: 8px;
+      border-left: 4px solid #EF5350;
+      padding: 10px 14px;
     }
-    .result-risk-list .risk-icon { flex-shrink: 0; font-size: 13px; margin-top: 2px; }
+    .result-risk-list .risk-icon {
+      flex-shrink: 0;
+      font-size: 15px;
+      margin-top: 2px;
+    }
+
+    /* 放置期間タイムライン（強調ラベル） */
+    .risk-timeline-label {
+      display: inline-block;
+      background: #C62828;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 900;
+      border-radius: 4px;
+      padding: 1px 8px;
+      margin-right: 6px;
+      letter-spacing: 0.06em;
+      vertical-align: middle;
+    }
+
     /* CTA直前の訴求一文 */
     .result-urgency {
       text-align: center;
       line-height: 1.85;
       color: var(--color-text);
-      background: linear-gradient(135deg, #f0faf7, #e6f4f0);
-      border: 1.5px solid rgba(42,127,111,0.30);
-      border-radius: 12px;
-      padding: 22px 22px 18px;
+      background: linear-gradient(135deg, #FFF8F0, #FFF2E4);
+      border: 2px solid #F59E0B;
+      border-radius: 14px;
+      padding: 24px 22px 20px;
       margin-bottom: 24px;
+      box-shadow: 0 4px 18px rgba(245,158,11,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .result-urgency::before {
+      content: '！';
+      position: absolute;
+      top: -20px; right: -10px;
+      font-size: 120px;
+      font-weight: 900;
+      color: rgba(245,158,11,0.06);
+      line-height: 1;
     }
     .result-urgency em {
       font-style: normal;
-      color: var(--color-primary);
+      color: #C05700;
     }
-        .result-urgency__main {
-      font-size: clamp(16px, 4.2vw, 18px);
+    .result-urgency__main {
+      font-size: clamp(18px, 4.8vw, 22px);
       font-weight: 900;
-      margin-bottom: 10px;
-      color: var(--color-text);
+      margin-bottom: 12px;
+      color: #3A2000;
+      line-height: 1.5;
     }
     .result-urgency__main em {
-      color: var(--color-primary-dark);
+      color: #C05700;
+      background: linear-gradient(transparent 60%, rgba(245,158,11,0.25) 60%);
     }
     .result-urgency__mid {
-      font-size: clamp(13px, 3.3vw, 14px);
-      font-weight: 500;
-      color: var(--color-text-light);
-      line-height: 1.75;
-      margin-bottom: 12px;
+      font-size: clamp(13px, 3.5vw, 15px);
+      font-weight: 600;
+      color: #5C4000;
+      line-height: 1.8;
+      margin-bottom: 14px;
     }
     .result-urgency__sub {
-      font-size: clamp(13px, 3.2vw, 14px);
-      font-weight: 700;
-      color: var(--color-primary);
-      background: rgba(42,127,111,0.10);
-      border-radius: 20px;
+      font-size: clamp(13px, 3.5vw, 15px);
+      font-weight: 900;
+      color: #fff;
+      background: linear-gradient(135deg, #F59E0B, #E8760A);
+      border-radius: 50px;
       display: inline-block;
-      padding: 4px 16px;
+      padding: 8px 24px;
+      box-shadow: 0 3px 12px rgba(245,158,11,0.35);
+      letter-spacing: 0.04em;
     }
     .result-divider { border: none; border-top: 1px solid var(--color-border); margin: 22px 0; }
 
@@ -669,8 +808,8 @@
 
     /* 施術プランカード */
     .plan-card {
-      background: linear-gradient(135deg, rgba(42,127,111,0.08), rgba(42,127,111,0.03));
-      border: 1.5px solid rgba(42,127,111,0.30);
+      background: linear-gradient(135deg, rgba(58,140,196,0.08), rgba(58,140,196,0.03));
+      border: 1.5px solid rgba(58,140,196,0.30);
       border-radius: 10px;
       padding: 20px;
     }
@@ -741,7 +880,7 @@
     .voice-card__avatar {
       width: 44px; height: 44px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--color-primary), #3a9d89);
+      background: linear-gradient(135deg, var(--color-primary), #5AAED8);
       color: #fff;
       font-size: 18px;
       display: flex; align-items: center; justify-content: center;
@@ -766,37 +905,42 @@
        結果内CTA（2段ボタン）
        ============================================================ */
     .result-cta-box {
-      background: linear-gradient(135deg, #f0fdf9, #e8f7f2);
-      border: 2px solid rgba(42,127,111,0.35);
-      border-radius: var(--radius);
-      padding: 28px 22px 24px;
+      background: linear-gradient(145deg, #EBF6FD, #D6EDFA);
+      border: 2px solid rgba(58,140,196,0.45);
+      border-radius: 16px;
+      padding: 30px 24px 26px;
       text-align: center;
+      box-shadow: 0 6px 24px rgba(58,140,196,0.12);
     }
     .result-cta-box__eyecatch {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--color-primary);
       letter-spacing: 0.06em;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
+      background: rgba(58,140,196,0.10);
+      display: inline-block;
+      padding: 4px 16px;
+      border-radius: 50px;
     }
     .result-cta-box__title {
-      font-size: clamp(16px, 4.5vw, 19px);
+      font-size: clamp(18px, 5vw, 22px);
       font-weight: 900;
       color: var(--color-text);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       line-height: 1.45;
     }
     .result-cta-box__sub {
-      font-size: 13px;
+      font-size: clamp(13px, 3.4vw, 15px);
       color: var(--color-text-light);
-      margin-bottom: 16px;
-      line-height: 1.75;
+      margin-bottom: 18px;
+      line-height: 1.8;
     }
     .result-cta-box__trigger {
-      font-size: clamp(13px, 3.5vw, 14px);
+      font-size: clamp(14px, 3.7vw, 15px);
       font-weight: 700;
       color: var(--color-primary-dark);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
     .result-cta-btns {
       display: flex;
@@ -857,7 +1001,7 @@
        CTAセクション（全面改善）
        ============================================================ */
     .cta-section {
-      background: linear-gradient(160deg, #1a6657 0%, #2A7F6F 55%, #3a9d89 100%);
+      background: linear-gradient(145deg, #0F2D55 0%, #1A5C9A 35%, #3A8CC4 65%, #6BBFE0 100%);
       color: var(--color-white);
       padding: 72px 0;
       text-align: center;
@@ -937,7 +1081,7 @@
        フッター
        ============================================================ */
     .footer {
-      background: #1a2421;
+      background: linear-gradient(170deg, #0A1E38 0%, #0F2D55 100%);
       color: rgba(255,255,255,0.75);
       padding: 48px 0 32px;
     }
@@ -1035,7 +1179,7 @@
        デモ告知バー（最上部）
        ============================================================ */
     .demo-bar {
-      background: linear-gradient(90deg, #1a2421 0%, #2A7F6F 100%);
+      background: linear-gradient(90deg, #0A1E38 0%, #1A5C9A 50%, #5AAED8 100%);
       color: rgba(255,255,255,0.92);
       text-align: center;
       padding: 9px 20px;
@@ -1054,7 +1198,7 @@
        売上試算セクション（ROI）
        ============================================================ */
     .roi-section {
-      background: #1a2421;
+      background: #0F2540;
       color: var(--color-white);
       padding: 72px 0;
     }
@@ -1167,7 +1311,7 @@
     }
     .diff-table td:first-child  { background: var(--color-bg); font-weight: 700; font-size: 12px; color: var(--color-text-light); }
     .diff-table td.td-normal    { background: var(--color-white); color: var(--color-text-light); text-align: center; }
-    .diff-table td.td-this      { background: rgba(42,127,111,0.05); color: var(--color-primary); font-weight: 700; text-align: center; }
+    .diff-table td.td-this      { background: rgba(58,140,196,0.05); color: var(--color-primary); font-weight: 700; text-align: center; }
     .diff-badge {
       display: inline-block;
       background: var(--color-primary);
@@ -1198,7 +1342,7 @@
       background: var(--color-white);
       border: 1px solid var(--color-border);
       border-radius: var(--radius);
-            padding: 20px 18px;
+      padding: 20px 18px;
       text-align: center;
       min-width: 130px;
       flex: 1;
@@ -1288,7 +1432,7 @@
     /* 矢印の装飾 */
     .change-card__arrow {
       display: inline-block;
-      background: rgba(42,127,111,0.12);
+      background: rgba(58,140,196,0.12);
       color: var(--color-primary);
       font-size: 11px;
       font-weight: 700;
@@ -1323,7 +1467,7 @@
       transition: background 0.2s;
       user-select: none;
     }
-    .faq-question:hover { background: rgba(42,127,111,0.04); }
+    .faq-question:hover { background: rgba(58,140,196,0.04); }
     .faq-q-mark {
       width: 26px; height: 26px;
       border-radius: 50%;
@@ -1379,6 +1523,8 @@
         <span>SEITAI REBUILD</span>
       </div>
       <div class="header__nav">
+        <!-- 公式HPボタン -->
+        <a href="https://ribuild.jp/" class="btn btn--outline header__cta" target="_blank" rel="noopener">🏠 公式HP</a>
         <!-- 診断ボタン -->
         <a href="#form-section" class="btn btn--primary header__cta">🔍 無料診断</a>
         <!-- WEB予約ボタン -->
@@ -1655,8 +1801,11 @@
             <hr class="result-divider" />
 
             <!-- ② 放置リスク -->
-            <div class="result-block">
-              <div class="result-block__title"><span class="icon">⚠️</span> このまま放置すると…</div>
+            <div class="result-block result-block--risk">
+              <div class="risk-warning-banner">
+                ⚠️ このまま放置すると…悪化する可能性があります
+                <span class="warn-sub">放置期間が長いほど、回復にかかる時間・費用も増えていきます</span>
+              </div>
               <ul class="result-risk-list" id="result-risk-list"></ul>
             </div>
 
@@ -1689,15 +1838,16 @@
             <!-- CTA直前の一文 -->
             <div class="result-urgency">
               <div class="result-urgency__main">
-                悩む時間が長いほど、<br />
-                <em>改善までの時間も伸びていきます。</em>
+                放置するほど、<br />
+                <em>回復に必要な時間は長くなります。</em>
               </div>
               <div class="result-urgency__mid">
-                「まずは状態を知るだけ」で大丈夫です。<br />
-                予約や来院を決めるのは、その後で構いません。
+                「また今度でいいか」と後回しにするほど、<br />
+                症状は慢性化し、改善が難しくなります。<br />
+                気づいた今がもっとも早いタイミングです。
               </div>
               <div class="result-urgency__sub">
-                気づいた今が、一番早いタイミングです
+                🔥 今すぐ動くことが最短の近道
               </div>
             </div>
 
@@ -1784,209 +1934,6 @@
     </div>
   </section>
 
-  <!-- ============================================================
-       期待できる変化セクション
-       ============================================================ -->
-  <section class="section change-section" id="change-section">
-    <div class="container">
-      <div class="fade-in" style="text-align:center;">
-        <span class="section-label">RESULT</span>
-        <h2 class="section-title">この仕組みで<br />期待できる変化</h2>
-        <p class="section-sub">
-          「なんとなく予約する」ではなく、<br />
-          「自分に必要だから来る」方との出会いを増やします。
-        </p>
-      </div>
-            <div class="change-cards">
-
-        <div class="change-card fade-in">
-          <div class="change-card__icon">🎯</div>
-          <div class="change-card__body">
-            <div class="change-card__before">「なんとなく来店」ではなく…</div>
-            <div class="change-card__after">
-              <span class="change-card__arrow">→</span>
-              「自分に必要だから来る」お客様が増える
-            </div>
-          </div>
-        </div>
-
-        <div class="change-card fade-in">
-          <div class="change-card__icon">💬</div>
-          <div class="change-card__body">
-            <div class="change-card__before">来店前に信頼関係が築けているため…</div>
-            <div class="change-card__after">
-              <span class="change-card__arrow">→</span>
-              初回の満足度・継続率が上がりやすい
-            </div>
-          </div>
-        </div>
-
-        <div class="change-card fade-in">
-          <div class="change-card__icon">📈</div>
-          <div class="change-card__body">
-            <div class="change-card__before">月に2〜3名増えるだけでも…</div>
-            <div class="change-card__after">
-              <span class="change-card__arrow">→</span>
-              数ヶ月で導入費用の回収が見込めます
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       売上試算セクション（経営者向け ROI）
-       ============================================================ -->
-  <section class="roi-section" id="roi-section">
-    <div class="container">
-      <div class="fade-in" style="text-align:center;">
-        <span class="section-label">BUSINESS IMPACT</span>
-        <h2 class="section-title">集客・単価・リピートへの<br />具体的な影響</h2>
-        <p class="section-sub">
-          LP導入によって変わる、3つの経営指標。
-        </p>
-      </div>
-
-      <!-- 3指標 -->
-      <div class="roi-metrics fade-in">
-        <div class="roi-metric">
-          <div class="roi-metric__icon">📥</div>
-          <div class="roi-metric__value">集客</div>
-          <div class="roi-metric__label">名刺を渡すだけで<br />自動的に見込み客へ誘導</div>
-        </div>
-        <div class="roi-metric">
-          <div class="roi-metric__icon">💰</div>
-          <div class="roi-metric__value">単価</div>
-          <div class="roi-metric__label">診断で「納得感」が生まれ<br />高単価コースへの誘導がしやすい</div>
-        </div>
-        <div class="roi-metric">
-          <div class="roi-metric__icon">🔁</div>
-          <div class="roi-metric__value">リピート</div>
-          <div class="roi-metric__label">来店前から信頼が築けるため<br />初回継続率が上がりやすい</div>
-        </div>
-      </div>
-
-      <!-- 試算シミュレーション -->
-      <div class="roi-calc fade-in">
-        <div class="roi-calc__title">📊 シンプルな試算例</div>
-        <div class="roi-calc__row">
-          <span>初回施術単価（平均）</span>
-          <strong>¥8,800</strong>
-        </div>
-        <div class="roi-calc__row">
-          <span>月に新規が2〜3名増えた場合</span>
-          <strong>＋¥17,600〜¥26,400 / 月</strong>
-        </div>
-        <div class="roi-calc__row">
-          <span>その50%がリピーターになると</span>
-          <strong>月間 ¥35,000〜50,000 規模へ</strong>
-        </div>
-        <div class="roi-calc__row total">
-          <span>導入費用の回収目安</span>
-          <strong>6〜12ヶ月程度が一つの目安</strong>
-        </div>
-      </div>
-      <p class="roi-note fade-in">※ 上記はあくまで試算例です。効果は施術内容・地域・運用方法により異なります。</p>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       ABOUT セクション（この仕組みについて）
-       ============================================================ -->
-  <section class="section about-section" id="about-section">
-    <div class="container">
-      <div class="fade-in" style="text-align:center;">
-        <span class="section-label">ABOUT</span>
-        <h2 class="section-title">この仕組みについて</h2>
-        <p class="section-sub">
-          本LPは、AIを活用した来店導線設計の一例です。<br />
-          名刺・LP・診断を組み合わせることで、<br />
-          来店までの流れを自動化することが可能です。
-        </p>
-      </div>
-
-      <div class="about-flow fade-in">
-        <div class="about-flow__item">
-          <div class="about-flow__icon">🪪</div>
-          <div class="about-flow__label">名刺のQRコード</div>
-          <div class="about-flow__desc">渡すだけで診断LPへ自動誘導</div>
-        </div>
-        <div class="about-flow__arrow">→</div>
-        <div class="about-flow__item">
-          <div class="about-flow__icon">🔍</div>
-          <div class="about-flow__label">AI診断LP</div>
-          <div class="about-flow__desc">症状を入力して結果を表示</div>
-        </div>
-        <div class="about-flow__arrow">→</div>
-        <div class="about-flow__item">
-          <div class="about-flow__icon">📅</div>
-          <div class="about-flow__label">予約・LINE相談</div>
-          <div class="about-flow__desc">来店・問い合わせへつなぐ</div>
-        </div>
-      </div>
-
-      <p class="about-note fade-in">
-        ※ 本LPはデモ用のサンプルです。正式制作の際は内容・デザイン・価格表記などをご確認のうえ調整します。
-      </p>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       差別化セクション（vs 普通のHP / vs ChatGPT）
-       ============================================================ -->
-  <section class="section diff-section" id="diff-section">
-    <div class="container">
-      <div class="fade-in" style="text-align:center;">
-        <span class="section-label">DIFFERENCE</span>
-        <h2 class="section-title">「普通のHP」との<br />決定的な違い</h2>
-        <p class="section-sub">
-          「診断→納得→行動」が一体化しているのが、このLPの最大の特徴です。<br />
-          情報を"見せるだけ"のHPでは生まれない、来店動機をつくります。
-        </p>
-      </div>
-
-      <div class="fade-in" style="overflow-x:auto;">
-        <table class="diff-table">
-          <thead>
-            <tr>
-              <th>比較項目</th>
-              <th class="th-normal">普通のHP</th>
-              <th class="th-this">このLP <span class="diff-badge">NEW</span></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>来た人への対応</td>
-              <td class="td-normal">情報を見せるだけ</td>
-              <td class="td-this">診断→納得→行動まで一体化</td>
-            </tr>
-            <tr>
-              <td>離脱した人の対策</td>
-              <td class="td-normal">なし（そのまま離脱）</td>
-              <td class="td-this">LINE相談で取りこぼしを防ぐ</td>
-            </tr>
-            <tr>
-              <td>来店前の信頼形成</td>
-              <td class="td-normal">弱い</td>
-              <td class="td-this">診断結果で「自分ごと」化される</td>
-            </tr>
-            <tr>
-              <td>ChatGPTとの違い</td>
-              <td class="td-normal">汎用的な回答のみ</td>
-              <td class="td-this">予約・LINE導線まで設計済み</td>
-            </tr>
-            <tr>
-              <td>経営者の運用負担</td>
-              <td class="td-normal">記事更新・SEO対応が必要</td>
-              <td class="td-this">渡すだけ・自動で機能する</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
 
   <!-- ============================================================
        FAQ セクション（CTAの手前に配置）
@@ -2397,7 +2344,7 @@
         '3ヶ月後には頸椎への負担が蓄積し、しびれや腕への影響が出るケースもある',
         '放置が続くほど、神経への圧迫リスクが高まり回復に時間がかかっていく',
       ],
-            '腕': [
+      '腕': [
         '数週間後には腕のだるさ・しびれが日常的に続くようになりやすい',
         '1〜2ヶ月後には肘・手首にも影響が広がり、細かい作業が辛くなることも',
         '3ヶ月後には腕を使うたびに痛みや不快感が出る状態になるケースがある',
@@ -2486,7 +2433,7 @@
         risks:           baseRisks,
 
         diagnosis:
-          `**${s.cause}による可能性が高いです。**\n\n` +
+          `###${s.cause}による可能性が高いです。\n\n` +
           (symptoms.length > 1 ? `【選択された症状：${symptomLabel}】\n複数の症状が重なっているため\nより早めのケアが重要です。\n\n` : '') +
           `【あなたの場合（${lifestyleLabel}の方に多いパターン）】\n` +
           `${ls.text}\n\n` +
@@ -2810,6 +2757,10 @@
           el.innerHTML = text.split('\n').map(function(line) {
             // 空行 → スペーサー
             if (line === '') return '<span class="para-space"></span>';
+            // ### 診断ヘッドライン（原因の大見出し）
+            if (line.startsWith('###')) {
+              return '<span class="diagnosis-headline">' + line.slice(3) + '</span>';
+            }
             // **太字強調** を変換
             line = line.replace(/\*\*(.+?)\*\*/g, '<strong class="para-strong">$1</strong>');
             // 【ヘッダー】
